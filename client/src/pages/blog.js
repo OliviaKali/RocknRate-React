@@ -1,19 +1,26 @@
-import React from "react";
+import React, { Component } from "react";
 import SearchForm from "../components/SearchForm";
 import ResultList from "../components/ResultList"
 
-function Blog() {
+class Blog extends Component{
 
-  return (
-        <div>
-  <SearchForm
-    search={this.state.search}
-    handleFormSubmit={this.handleFormSubmit}
-    handleInputChange={this.handleInputChange}
-  />
-    <ResultList results={this.state.results} />
-    </div>
-  );
+  //  componentDidMount() {
+  //   this.searchArtist("beyonce");
+  // }
+
+  render() {
+    return (
+      <div>
+<SearchForm
+  search={this.state.search}
+  handleFormSubmit={this.handleFormSubmit}
+  handleInputChange={this.handleInputChange}
+/>
+  <ResultList results={this.state.results} />
+  </div>
+);
+  }
+
 }
 
 export default Blog;

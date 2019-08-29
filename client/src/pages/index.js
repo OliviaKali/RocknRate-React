@@ -1,14 +1,21 @@
 import React, { Component } from "react";
+import SearchForm from "../components/SearchForm"
 
-function Home() {
+class Home extends Component {
+  // componentDidMount() {
+  //   this.searchGiphy("beyonce");
+  // }
+
+  render() {
     return (
-      <div className="jumbotron text-center">
-        <h1>React Recipes</h1>
-        <a target="_blank" rel="noopener noreferrer" href="http://www.recipepuppy.com/about/api/">
-          Powered by Recipe Puppy
-        </a>
-      </div>
+      <SearchForm
+      search={this.state.search}
+      handleFormSubmit={this.handleFormSubmit}
+      handleInputChange={this.handleInputChange}
+    />
     );
+  }
+
   }
   
   export default Home;
