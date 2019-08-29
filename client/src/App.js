@@ -1,3 +1,4 @@
+
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Home from "./pages/index";
@@ -14,7 +15,10 @@ function App() {
         
     </div>
     </Router>
+
   );
 }
+
+ReactDOM.render(<App />, document.querySelector('#app'));
 
 export default App;

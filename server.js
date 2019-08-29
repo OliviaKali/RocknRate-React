@@ -17,7 +17,9 @@
 // app.use(passport.initialize());
 // app.use(passport.session());
 
+
 // // Static directory
+
 // app.use(express.static("app/public"));
 
 // passport.serializeUser(function(user, done) {
@@ -28,7 +30,9 @@
 //   done(null, obj);
 // });
 
+
 // // Routes
+
 // require("./app/routes/html-routes.js")(app);
 // require("./app/routes/api-blogRoutes.js")(app);
 // require('./app/routes/artist-api-routes.js')(app);
@@ -40,4 +44,5 @@
 //   app.listen(PORT, function() {
 //     console.log("App listening on PORT " + PORT);
 //   });
+
 // });
