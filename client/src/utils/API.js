@@ -1,34 +1,4 @@
-// import axios from "axios";
-// import keys from "../../../keys";
-// import Spotify from "node-spotify-api";
-// // var Spotify = require("node-spotify-api");
-// require("dotenv").config();
 
-// export default {
-//     searchArtist: function(id) {
-//     axios.post("api/artist" + id); 
-//             let spotify = new Spotify(keys.spotify);
-//     spotify
-//     .search({ type: "artist", query: req.body.artist, limit: 3 })
-//     .then(function(response) {
-//       var artistName = response.artists.items[0].name;
-//       var artistGenres = response.artists.items[0].genres;
-//       var imageUrl = response.artists.items[0].images[0].url;
-//       var artistID = response.artists.items[0].id;
-
-//       var artist = {
-//         name: artistName,
-//         genres: artistGenres,
-//         image: imageUrl,
-//         id: artistID
-//       };
-//       return res.json(artist);
-//     })
-//     .catch(function(err) {
-//       return (err);
-//     });
-        
-//     }
 
 
   // Gets all books
