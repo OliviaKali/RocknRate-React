@@ -16,5 +16,14 @@
   "bugs": {
     "url": "https://github.com/OliviaKali/RocknRate-React/issues"
   },
-  "homepage": "https://github.com/OliviaKali/RocknRate-React#readme"
+  "homepage": "https://github.com/OliviaKali/RocknRate-React#readme",
+  "dependencies": {
+    "@material-ui/core": "^4.3.3",
+    "@material-ui/icons": "^4.2.1",
+    "express": "^4.17.1",
+    "passport": "^0.4.0",
+    "passport-spotify": "^1.1.0",
+    "react-scripts": "^3.1.1"
+  },
+  "devDependencies": {}
 }
