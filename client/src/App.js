@@ -12,9 +12,9 @@ class App extends Component {
     results: []
   };
 
-  // componentDidMount() {
-  //   this.searchArtist("beyonce");
-  // }
+  componentDidMount() {
+    this.searchArtist("beyonce");
+  }
 
   searchArtist = query => {
     spotifyAPI.search(query)
@@ -33,7 +33,7 @@ class App extends Component {
   // When the form is submitted, search the Giphy API for `this.state.search`
   handleFormSubmit = event => {
     event.preventDefault();
-    this.searchGiphy(this.state.search);
+    this.searchArtist(this.state.search);
 
   };
   render () {

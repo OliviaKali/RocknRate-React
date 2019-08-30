@@ -33,7 +33,7 @@ app.use(express.static("client/build"));
 
 // // // Routes
 
-// // require("./app/routes/html-routes.js")(app);
+require("./routes/html-routes")(app);
 // // require("./app/routes/api-blogRoutes.js")(app);
 // // require('./app/routes/artist-api-routes.js')(app);
 
