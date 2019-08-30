@@ -12,9 +12,9 @@ class App extends Component {
     results: []
   };
 
-  componentDidMount() {
-    this.searchArtist("beyonce");
-  }
+  // componentDidMount() {
+  //   this.searchArtist("beyonce");
+  // }
 
   searchArtist = query => {
     spotifyAPI.search(query)
