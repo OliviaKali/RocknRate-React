@@ -8,7 +8,7 @@ artistSearch: axios({
    
     method: 'POST',
     url: "/api/search/",
-    data: { artist: this.state.search }
+    data: { artist: "beyonce"}
   }).then(function(response) {
       console.log(response);
   })
