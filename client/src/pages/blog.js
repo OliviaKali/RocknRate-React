@@ -1,11 +1,10 @@
 import React, { Component } from "react";
-import axios from "axios"
+import axios from "axios";
 import SearchForm from "../components/SearchForm";
 import ResultList from "../components/ResultList";
 import spotifyAPI from "../utils/spotifyAPI";
 
 class Blog extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -16,13 +15,14 @@ class Blog extends Component {
 
   searchArtist = query => {
     axios({
-      method: 'POST',
+      method: "POST",
       url: "http://localhost:3001/api/search/",
-      data: { artist: query}
+      data: { artist: query }
     })
       .then(res => {
         console.log(res);
-        this.setState({ results: res.data })})
+        this.setState({ results: res.data });
+      })
       .catch(err => console.log(err));
   };
 
@@ -40,11 +40,33 @@ class Blog extends Component {
     this.searchArtist(this.state.search);
   };
 
-  
-  // artist(props) {
-  //   super(props);
-  //   this.state = { spotifyAPI };
+  // //Change this function to react to have the artistName
+  //   //appear in the url
+  //   //example: localhost:3000/artist/beyonce
+
+  // var searchInput = $.getUrlVar("s");
+  // if (null !== searchInput) {
+  //   var decodedSearch = decodeURIComponent(searchInput);
+  //   searchArtist(decodedSearch);
   // }
+  // $.extend({
+  //   getUrlVars: function() {
+  //     var vars = [],
+  //       hash;
+  //     var hashes = window.location.href
+  //       .slice(window.location.href.indexOf("?") + 1)
+  //       .split("&");
+  //     for (var i = 0; i < hashes.length; i++) {
+  //       hash = hashes[i].split("=");
+  //       vars.push(hash[0]);
+  //       vars[hash[0]] = hash[1];
+  //     }
+  //     return vars;
+  //   },
+  //   getUrlVar: function(name) {
+  //     return $.getUrlVars()[name];
+  //   }
+  // });
 
   render() {
     return (
@@ -55,21 +77,29 @@ class Blog extends Component {
           handleFormSubmit={this.handleFormSubmit}
           handleInputChange={this.handleInputChange}
         />
- <iframe  class="spotifyPlayer" src="https://open.spotify.com/embed/artist/{this.state.results.id}"
-       width="650" height="500" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-    {/* <p>{this.state.results.id}</p> */}
+        {/* unable to see results with quotations in src, errors if not in quotes */}
+        <iframe
+        value={this.state.results.name}
+          className="spotifyPlayer"
+          src={`https://open.spotify.com/embed/artist/${this.state.results.id}`}
+          width="650"
+          height="500"
+          frameBorder="0"
+          allowtransparency="true"
+          allow="encrypted-media"
+        ></iframe>
 
-      <article className="tile is-child box">
-      {/* <p class="title">{this.state.results.name}</p> */}
-              <p className="title" value={this.state.results.name}>{this.state.results.name}</p>
-              <img id="artistImage" className="imageSize" src={this.state.results.image} />
-      </article>
-    
-        {/* <ResultList results={this.state.results} /> */}
-
-        {/* <iframe  className="spotifyPlayer" src="https://open.spotify.com/embed/artist/"
-  {props.response.id}
-   width="650" height="500" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe> */}
+        <article className="tile is-child box">
+          <p className="title" value={this.state.results.name}>
+            {this.state.results.name}
+          </p>
+          <img
+            id="artistImage"
+            className="imageSize"
+            src={this.state.results.image}
+            alt={this.state.results.name}
+          />
+        </article>
       </div>
     );
   }
