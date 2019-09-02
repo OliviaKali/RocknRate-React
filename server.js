@@ -2,8 +2,10 @@ var express = require("express");
 // const passport = require("passport");
 // const SpotifyStrategy = require('passport-spotify').Strategy;
 var path = require('path');
+var cors = require('cors');
 
 var apiRoutes = require("./routes/apiRoutes")
+app.use(cors());
 
 var app = express();
 var PORT = process.env.PORT || 3001;

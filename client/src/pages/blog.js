@@ -2,22 +2,20 @@ import React, { Component } from "react";
 import axios from "axios";
 import SearchForm from "../components/SearchForm";
 import ResultList from "../components/ResultList";
-import spotifyAPI from "../utils/spotifyAPI";
+// import spotifyAPI from "../utils/spotifyAPI";
 
 class Blog extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      search: props.search,
-      results: props.results
-    };
-  }
+  state = {
+    search: "",
+    results: []
+  };
 
-  searchArtist = query => {
+  searchArtist = search => {
     axios({
       method: "POST",
+      // url: "/api/search/",
       url: "http://localhost:3001/api/search/",
-      data: { artist: query }
+      data: { artist: search }
     })
       .then(res => {
         console.log(res);
@@ -38,6 +36,8 @@ class Blog extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     this.searchArtist(this.state.search);
+    // .then(res => this.setState({ artist: res.data }))
+    // .catch(err => console.log(err));;
   };
 
   // //Change this function to react to have the artistName
@@ -79,7 +79,8 @@ class Blog extends Component {
         />
         {/* unable to see results with quotations in src, errors if not in quotes */}
         <iframe
-        value={this.state.results.name}
+          title="musicPlayer"
+          value={this.state.results.name}
           className="spotifyPlayer"
           src={`https://open.spotify.com/embed/artist/${this.state.results.id}`}
           width="650"
