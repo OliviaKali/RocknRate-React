@@ -5,23 +5,23 @@ import axios from "axios"
 import SearchForm from "../components/SearchForm"
 
 class Home extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      search: "",
-      results: [],
-      redirect: false
-    };
-  }
-
   // constructor(props) {
   //   super(props);
   //   this.state = {
-  //     search: props.search,
-  //     results: props.results,
+  //     search: "",
+  //     results: [],
   //     redirect: false
   //   };
   // }
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      search: props.search,
+      results: props.results,
+      redirect: false
+    };
+  }
 
   searchArtist = search => {
     axios({

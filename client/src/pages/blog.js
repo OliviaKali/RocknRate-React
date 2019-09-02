@@ -5,26 +5,26 @@ import ResultList from "../components/ResultList";
 // import spotifyAPI from "../utils/spotifyAPI";
 
 class Blog extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     search: "",
-  //     results: []
-  //   };
-  // }
-  
   constructor(props) {
     super(props);
     this.state = {
-      search: props.search,
-      results: props.results,
-      redirect: false
+      search: "",
+      results: []
     };
   }
+  
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     search: props.search,
+  //     results: props.results,
+  //     redirect: false
+  //   };
+  // }
 
-  componentDidMount() {
-    this.searchArtist(this.state.search);
-  }
+  // componentDidMount() {
+  //   this.searchArtist(this.state.search);
+  // }
 
   searchArtist = search => {
     axios({
