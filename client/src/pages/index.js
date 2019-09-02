@@ -5,11 +5,23 @@ import axios from "axios"
 import SearchForm from "../components/SearchForm"
 
 class Home extends Component {
-  state = {
-    search: "",
-    results: [],
-    redirect: false
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      search: "",
+      results: [],
+      redirect: false
+    };
+  }
+
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     search: props.search,
+  //     results: props.results,
+  //     redirect: false
+  //   };
+  // }
 
   searchArtist = search => {
     axios({
@@ -37,12 +49,17 @@ class Home extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     this.searchArtist(this.state.search);
-    // then(() => this.setState({ redirect: true }));
-    this.setState({ redirect: true });
-    // this.setRedirect(this.state.redirect);
-    this.renderRedirect()
-    // .then(res => this.setState({ artist: res.data }))
-    // .catch(err => console.log(err));;
+    this.props.history.push({
+      pathname: "/artist",
+      state: {search: this.state.search}
+    })
+
+    // // then(() => this.setState({ redirect: true }));
+    // this.setState({ redirect: true });
+    // // this.setRedirect(this.state.redirect);
+    // this.renderRedirect()
+    // // .then(res => this.setState({ artist: res.data }))
+    // // .catch(err => console.log(err));;
   };
 
   setRedirect = () => {

@@ -5,10 +5,26 @@ import ResultList from "../components/ResultList";
 // import spotifyAPI from "../utils/spotifyAPI";
 
 class Blog extends Component {
-  state = {
-    search: "",
-    results: []
-  };
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     search: "",
+  //     results: []
+  //   };
+  // }
+  
+  constructor(props) {
+    super(props);
+    this.state = {
+      search: props.search,
+      results: props.results,
+      redirect: false
+    };
+  }
+
+  componentDidMount() {
+    this.searchArtist(this.state.search);
+  }
 
   searchArtist = search => {
     axios({
@@ -72,17 +88,34 @@ class Blog extends Component {
     return (
       <div>
         <h1>Working</h1>
-        <SearchForm
+        {/* <SearchForm
           search={this.state.search}
           handleFormSubmit={this.handleFormSubmit}
           handleInputChange={this.handleInputChange}
+        /> */}
+          <form>
+      <div className="form-group">
+        <label htmlFor="search">Search:</label>
+        <input
+          onChange={this.handleInputChange}
+          value={this.search}
+          name="search"
+          type="text"
+          className="form-control"
+          placeholder="Search for a Gif"
+          id="search"
         />
+        <button onClick={this.handleFormSubmit} className="btn btn-primary mt-3">
+          Search
+        </button>
+      </div>
+    </form>
         {/* unable to see results with quotations in src, errors if not in quotes */}
         <iframe
           title="musicPlayer"
-          value={this.state.results.name}
+          value={this.state.name}
           className="spotifyPlayer"
-          src={`https://open.spotify.com/embed/artist/${this.state.results.id}`}
+          src={`https://open.spotify.com/embed/artist/${this.state.id}`}
           width="650"
           height="500"
           frameBorder="0"
@@ -91,14 +124,14 @@ class Blog extends Component {
         ></iframe>
 
         <article className="tile is-child box">
-          <p className="title" value={this.state.results.name}>
-            {this.state.results.name}
+          <p className="title" value={this.state.name}>
+            {this.state.name}
           </p>
           <img
             id="artistImage"
             className="imageSize"
-            src={this.state.results.image}
-            alt={this.state.results.name}
+            src={this.state.image}
+            alt={this.state.name}
           />
         </article>
       </div>
