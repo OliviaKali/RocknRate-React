@@ -4,11 +4,13 @@ var express = require("express");
 var path = require('path');
 var cors = require('cors');
 
-var apiRoutes = require("./routes/apiRoutes")
-app.use(cors());
+var apiRoutes = require("./routes/apiRoutes");
+
 
 var app = express();
 var PORT = process.env.PORT || 3001;
+
+app.use(cors());
 
 // // // Requiring our models for syncing
 // // var db = require("./app/models/blog");
