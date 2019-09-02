@@ -5,12 +5,15 @@ class Home extends Component {
 
   render() {
     return (
+      <div>
       <h1>home page</h1>
-    //   <SearchForm
-    //   search={this.state.search}
-    //   handleFormSubmit={this.handleFormSubmit}
-    //   handleInputChange={this.handleInputChange}
-    // />
+      {/* need to add state into home?!
+      <SearchForm
+      search={this.state.search}
+      handleFormSubmit={this.handleFormSubmit}
+      handleInputChange={this.handleInputChange}
+    /> */}
+    </div>
     );
   }
 
