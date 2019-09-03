@@ -2,11 +2,15 @@ var express = require("express");
 // const passport = require("passport");
 // const SpotifyStrategy = require('passport-spotify').Strategy;
 var path = require('path');
+var cors = require('cors');
 
-var apiRoutes = require("./routes/apiRoutes")
+var apiRoutes = require("./routes/apiRoutes");
+
 
 var app = express();
 var PORT = process.env.PORT || 3001;
+
+app.use(cors());
 
 // // // Requiring our models for syncing
 // // var db = require("./app/models/blog");
@@ -33,7 +37,7 @@ app.use(express.static("client/build"));
 
 // // // Routes
 
-// // require("./app/routes/html-routes.js")(app);
+require("./routes/html-routes")(app);
 // // require("./app/routes/api-blogRoutes.js")(app);
 // // require('./app/routes/artist-api-routes.js')(app);
 
