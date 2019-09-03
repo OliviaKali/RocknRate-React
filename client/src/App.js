@@ -9,6 +9,8 @@ import axios from "axios";
 import Home from "./pages/index";
 import Blog from "./pages/blog";
 import About from "./pages/about";
+import PrimarySearchAppBar from "./components/NavBar/navbar";
+
 
 class App extends Component {
   state = { searchTerm: "", spotifyResults: [] };
@@ -43,6 +45,8 @@ class App extends Component {
   render() {
     console.log(this.state);
     return (
+      <div>
+      <PrimarySearchAppBar />
       <Router>
         <div>
           <Switch>
@@ -75,6 +79,7 @@ class App extends Component {
           </Switch>
         </div>
       </Router>
+</div>
     );
   }
 }
