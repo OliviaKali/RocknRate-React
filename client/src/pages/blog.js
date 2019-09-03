@@ -37,8 +37,6 @@ class Blog extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     this.searchArtist(this.state.search);
-    // .then(res => this.setState({ artist: res.data }))
-    // .catch(err => console.log(err));;
   };
 
   // //Change this function to react to have the artistName
