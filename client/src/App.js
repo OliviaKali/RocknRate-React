@@ -31,8 +31,8 @@ class App extends Component {
   searchArtist = search => {
     axios({
       method: "POST",
-      // url: "/api/search/",
-      url: "http://localhost:3001/api/search/",
+      url: "/api/search/",
+      // url: "http://localhost:3001/api/search/",
       data: { artist: search }
     })
       .then(res => {
