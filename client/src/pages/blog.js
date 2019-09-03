@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {withRouter} from 'react-router-dom'
 import axios from "axios";
 import SearchForm from "../components/SearchForm";
 import ResultList from "../components/ResultList";
@@ -10,19 +11,20 @@ class Blog extends Component {
     results: []
   };
 
-  searchArtist = search => {
-    axios({
-      method: "POST",
-      // url: "/api/search/",
-      url: "http://localhost:3001/api/search/",
-      data: { artist: search }
-    })
-      .then(res => {
-        console.log(res);
-        this.setState({ results: res.data });
-      })
-      .catch(err => console.log(err));
-  };
+  // searchArtist = search => {
+  //   axios({
+  //     method: "POST",
+  //     // url: "/api/search/",
+  //     url: "http://localhost:3001/api/search/",
+  //     data: { artist: search }
+  //   })
+  //     .then(res => {
+  //       console.log(res);
+  //       this.setState({ results: res.data });
+  //       // this.props.history.push("/artist");
+  //     })
+  //     .catch(err => console.log(err));
+  // };
 
   handleInputChange = event => {
     const name = event.target.name;
@@ -44,45 +46,21 @@ class Blog extends Component {
   //   //appear in the url
   //   //example: localhost:3000/artist/beyonce
 
-  // var searchInput = $.getUrlVar("s");
-  // if (null !== searchInput) {
-  //   var decodedSearch = decodeURIComponent(searchInput);
-  //   searchArtist(decodedSearch);
-  // }
-  // $.extend({
-  //   getUrlVars: function() {
-  //     var vars = [],
-  //       hash;
-  //     var hashes = window.location.href
-  //       .slice(window.location.href.indexOf("?") + 1)
-  //       .split("&");
-  //     for (var i = 0; i < hashes.length; i++) {
-  //       hash = hashes[i].split("=");
-  //       vars.push(hash[0]);
-  //       vars[hash[0]] = hash[1];
-  //     }
-  //     return vars;
-  //   },
-  //   getUrlVar: function(name) {
-  //     return $.getUrlVars()[name];
-  //   }
-  // });
-
   render() {
+    console.log(this.props)
     return (
       <div>
         <h1>Working</h1>
-        <SearchForm
+        {/* <SearchForm
           search={this.state.search}
           handleFormSubmit={this.handleFormSubmit}
           handleInputChange={this.handleInputChange}
-        />
-        {/* unable to see results with quotations in src, errors if not in quotes */}
+        /> */}
         <iframe
           title="musicPlayer"
-          value={this.state.results.name}
+          value={this.props.spotifyResults.name}
           className="spotifyPlayer"
-          src={`https://open.spotify.com/embed/artist/${this.state.results.id}`}
+          src={`https://open.spotify.com/embed/artist/${this.props.spotifyResults.id}`}
           width="650"
           height="500"
           frameBorder="0"
@@ -91,14 +69,14 @@ class Blog extends Component {
         ></iframe>
 
         <article className="tile is-child box">
-          <p className="title" value={this.state.results.name}>
-            {this.state.results.name}
+          <p className="title" value={this.props.spotifyResults.name}>
+            {this.props.spotifyResults.name}
           </p>
           <img
             id="artistImage"
             className="imageSize"
-            src={this.state.results.image}
-            alt={this.state.results.name}
+            src={this.props.spotifyResults.image}
+            alt={this.props.spotifyResults.name}
           />
         </article>
       </div>
@@ -106,4 +84,4 @@ class Blog extends Component {
   }
 }
 
-export default Blog;
+export default withRouter(Blog);
