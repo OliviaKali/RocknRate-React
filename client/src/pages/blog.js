@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import {withRouter} from 'react-router-dom'
+import { withRouter } from "react-router-dom";
 import axios from "axios";
 import SearchForm from "../components/SearchForm";
-import ResultList from "../components/ResultList";
 // import spotifyAPI from "../utils/spotifyAPI";
 
 class Blog extends Component {
@@ -47,38 +46,44 @@ class Blog extends Component {
   //   //example: localhost:3000/artist/beyonce
 
   render() {
-    console.log(this.props)
+    console.log(this.props);
     return (
       <div>
         <h1>Working</h1>
-        {/* <SearchForm
-          search={this.state.search}
-          handleFormSubmit={this.handleFormSubmit}
-          handleInputChange={this.handleInputChange}
-        /> */}
-        <iframe
-          title="musicPlayer"
-          value={this.props.spotifyResults.name}
-          className="spotifyPlayer"
-          src={`https://open.spotify.com/embed/artist/${this.props.spotifyResults.id}`}
-          width="650"
-          height="500"
-          frameBorder="0"
-          allowtransparency="true"
-          allow="encrypted-media"
-        ></iframe>
+        <SearchForm
+          search={this.props.searchTerm}
+          handleFormSubmit={this.props.handleFormSubmit}
+          handleInputChange={this.props.handleSearchChange}
+        />
+        {this.props.spotifyResults.length === 0 ? (
+          <h1>Search for an artist.</h1>
+        ) : (
+          <>
+            <iframe
+              title="musicPlayer"
+              value={this.props.spotifyResults.name}
+              className="spotifyPlayer"
+              src={`https://open.spotify.com/embed/artist/${this.props.spotifyResults.id}`}
+              width="650"
+              height="500"
+              frameBorder="0"
+              allowtransparency="true"
+              allow="encrypted-media"
+            ></iframe>
 
-        <article className="tile is-child box">
-          <p className="title" value={this.props.spotifyResults.name}>
-            {this.props.spotifyResults.name}
-          </p>
-          <img
-            id="artistImage"
-            className="imageSize"
-            src={this.props.spotifyResults.image}
-            alt={this.props.spotifyResults.name}
-          />
-        </article>
+            <article className="tile is-child box">
+              <p className="title" value={this.props.spotifyResults.name}>
+                {this.props.spotifyResults.name}
+              </p>
+              <img
+                id="artistImage"
+                className="imageSize"
+                src={this.props.spotifyResults.image}
+                alt={this.props.spotifyResults.name}
+              />
+            </article>
+          </>
+        )}
       </div>
     );
   }
