@@ -3,6 +3,8 @@ var express = require("express");
 // const SpotifyStrategy = require('passport-spotify').Strategy;
 var path = require('path');
 var cors = require('cors');
+const mongoose= require('mongoose');
+const passport = require('passport');
 
 var apiRoutes = require("./routes/apiRoutes");
 
@@ -20,6 +22,17 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // app.use(passport.initialize());
 // app.use(passport.session());
+
+//Passport config
+require('./config/passport')(passport);
+
+// DB Config
+const db = require('./keys').spotify.MongoURI;
+
+//Connect to Mongo
+mongoose.connect(db, {useNewUrlParser: true})
+.then (() => console.log("Mongo DB Connected..."))
+.catch(err => console.log(err));
 
 
 // // // Static directory

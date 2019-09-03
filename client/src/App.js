@@ -9,7 +9,10 @@ import axios from "axios";
 import Home from "./pages/index";
 import Blog from "./pages/blog";
 import About from "./pages/about";
+import Login from "./pages/login";
+import Register from "./pages/register";
 import PrimarySearchAppBar from "./components/NavBar/navbar";
+import LoginForm from "./components/LoginForm";
 
 
 class App extends Component {
@@ -76,6 +79,11 @@ class App extends Component {
               )}
             />
             <Route exact path="/about" component={About} />
+            <Route path="/login"  render ={props =>(
+            <LoginForm />
+            )}
+    />
+            <Route exact path="/register" component={Register} />
           </Switch>
         </div>
       </Router>
