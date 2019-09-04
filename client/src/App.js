@@ -9,6 +9,7 @@ import axios from "axios";
 import Home from "./pages/index";
 import Blog from "./pages/blog";
 import About from "./pages/about";
+import Books from "./pages/Books";
 import PrimarySearchAppBar from "./components/NavBar/navbar";
 
 
@@ -76,9 +77,14 @@ class App extends Component {
               )}
             />
             <Route exact path="/about" component={About} />
+
           </Switch>
+          
         </div>
+
       </Router>
+
+      
 </div>
     );
   }
