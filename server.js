@@ -2,7 +2,7 @@ var express = require("express");
 // const passport = require("passport");
 // const SpotifyStrategy = require('passport-spotify').Strategy;
 var path = require('path');
-var cors = require('cors');
+// var cors = require('cors');
 
 var apiRoutes = require("./routes/apiRoutes");
 
@@ -10,7 +10,7 @@ var apiRoutes = require("./routes/apiRoutes");
 var app = express();
 var PORT = process.env.PORT || 3001;
 
-app.use(cors());
+// app.use(cors());
 
 // // // Requiring our models for syncing
 // // var db = require("./app/models/blog");
