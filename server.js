@@ -1,4 +1,5 @@
 var express = require("express");
+const mongoose = require("mongoose");
 // const passport = require("passport");
 // const SpotifyStrategy = require('passport-spotify').Strategy;
 var path = require('path');
@@ -24,7 +25,10 @@ app.use(express.json());
 
 // // // Static directory
 
-app.use(express.static("client/build"));
+// app.use(express.static("client/build"));
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
 
 // passport.serializeUser(function(user, done) {
 //   done(null, user);
@@ -33,11 +37,16 @@ app.use(express.static("client/build"));
 // passport.deserializeUser(function(obj, done) {
 //   done(null, obj);
 // });
+const routes = require("./routes/api");
+const routes1 = require("./routes/index")
+app.use(routes);
+app.use(routes1);
 
+mongoose.connect("mongodb://localhost/reactreadinglist", { useNewUrlParser: true });
 
 // // // Routes
 
-require("./routes/html-routes")(app);
+// require("./routes/html-routes")(app);
 // // require("./app/routes/api-blogRoutes.js")(app);
 // // require('./app/routes/artist-api-routes.js')(app);
 
