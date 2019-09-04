@@ -54,7 +54,7 @@ class Blog extends Component {
     if (this.state.title && this.state.rating) {
       // console.log(this.state.artist)
       API.saveBook({
-        artist: this.state.artist,
+        artist: this.props.spotifyResults.name,
         title: this.state.title,
         rating: this.state.rating,
         blog: this.state.blog
@@ -145,7 +145,7 @@ class Blog extends Component {
   <form>
 
     <Input
-      value={this.state.artist}
+      value={this.props.spotifyResults.name}
       onChange={this.handleInputChangeBlog}
       name="artist"
       placeholder="Artist (required)"

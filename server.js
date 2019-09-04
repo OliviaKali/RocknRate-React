@@ -46,7 +46,7 @@ mongoose.connect("mongodb://localhost/reactreadinglist", { useNewUrlParser: true
 
 // // // Routes
 
-require("./routes/html-routes")(app);
+// require("./routes/html-routes")(app);
 // // require("./app/routes/api-blogRoutes.js")(app);
 // // require('./app/routes/artist-api-routes.js')(app);
 
