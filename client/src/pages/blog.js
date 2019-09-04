@@ -141,15 +141,16 @@ class Blog extends Component {
 {/* <Jumbotron>
   <h1>Write A Blog Entry</h1>
 </Jumbotron> */}
+ <h1>Write A Blog Entry</h1>
 
   <form>
 
-    <Input
+    {/* <Input
       value={this.props.spotifyResults.name}
       onChange={this.handleInputChangeBlog}
       name="artist"
       placeholder="Artist (required)"
-    />
+    /> */}
 
     <Input
       value={this.state.title}
@@ -184,6 +185,7 @@ class Blog extends Component {
   {/* <Jumbotron>
     <h1>Prior Blog Entries</h1>
   </Jumbotron> */}
+  <h1>Prior Blog Entries</h1>
 
     {this.state.books.length ? (
       <List>
