@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import axios from "axios";
 import SearchForm from "../components/SearchForm";
+import API from "../utils/API";
+import { Container } from "../components/Grid";
+import { List, ListItem } from "../components/List";
+import { Input, TextArea, FormBtn } from "../components/Form";
 // import spotifyAPI from "../utils/spotifyAPI";
 
 class Blog extends Component {
@@ -82,6 +86,96 @@ class Blog extends Component {
             </article>
           </>
         )}
+              <Container fluid>
+
+<Jumbotron>
+  <h1>Write A Blog Entry</h1>
+</Jumbotron>
+
+  <form>
+
+    <Input
+      value={this.state.artist}
+      onChange={this.handleInputChange}
+      name="artist"
+      placeholder="Artist (required)"
+    />
+
+    <Input
+      value={this.state.title}
+      onChange={this.handleInputChange}
+      name="title"
+      placeholder="Blog Title (required)"
+    />
+
+    <Input
+      value={this.state.rating}
+      onChange={this.handleInputChange}
+      name="rating"
+      placeholder="Rating (required)"
+    />
+
+    <TextArea
+      value={this.state.blog}
+      onChange={this.handleInputChange}
+      name="blog"
+      placeholder="Blog Entry (Required)"
+    />
+
+    <FormBtn
+      disabled={!(this.state.rating && this.state.title)}
+      onClick={this.handleFormSubmit}
+    >
+      Submit Blog
+    </FormBtn>
+
+  </form>
+
+  <Jumbotron>
+    <h1>Prior Blog Entries</h1>
+  </Jumbotron>
+
+    {this.state.books.length ? (
+      <List>
+        {this.state.books.map(book => {
+          return (
+
+            <ListItem key={book._id}>
+
+              <a href={"/books/" + book._id}>
+
+                <p>
+                  Blog Artist: {book.artist}
+                </p>
+
+                <p>
+                  Blog Title: {book.title}
+                </p>
+
+                <p>
+                  Rating: {book.rating}
+                </p>
+
+                <p>
+                  Blog Entry: {book.blog}
+                </p>
+
+              </a>
+
+            </ListItem>
+
+          );
+        })}
+      </List>
+
+    ) : (
+      <h3>No Blogs to Display</h3>
+    )}
+
+</Container>
+);
+}
+}
       </div>
     );
   }
