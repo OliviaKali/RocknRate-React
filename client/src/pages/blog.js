@@ -11,7 +11,57 @@ import { Input, TextArea, FormBtn } from "../components/Form";
 class Blog extends Component {
   state = {
     search: "",
-    results: []
+    results: [],
+      books: [],
+    artist: "",
+    title: "",
+    rating: "",
+    blog: ""
+  };
+  componentDidMount() {
+    this.loadBooks();
+  }
+
+  // Loads all books  and sets them to this.state.books
+  loadBooks = () => {
+    API.getBooks()
+      .then(res =>
+        //need to connect artist to props.artistName
+        this.setState({ books: res.data, artist: "", title: "", rating: "", blog: "" })
+      )
+      .catch(err => console.log(err));
+  };
+
+  // Deletes a book from the database with a given id, then reloads books from the db
+  deleteBook = id => {
+    API.deleteBook(id)
+      .then(res => this.loadBooks())
+      .catch(err => console.log(err));
+  };
+
+  // Handles updating component state when the user types into the input field
+  handleInputChangeBlog = event => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
+    });
+  };
+
+  // When the form is submitted, use the API.saveBook method to save the book data
+  // Then reload books from the database
+  handleFormSubmitBlog = event => {
+    event.preventDefault();
+    if (this.state.title && this.state.rating) {
+      // console.log(this.state.artist)
+      API.saveBook({
+        artist: this.state.artist,
+        title: this.state.title,
+        rating: this.state.rating,
+        blog: this.state.blog
+      })
+        .then(res => this.loadBooks())
+        .catch(err => console.log(err));
+    }
   };
 
   // searchArtist = search => {
@@ -85,55 +135,55 @@ class Blog extends Component {
               />
             </article>
           </>
-        )}
-              <Container fluid>
+        )};
+        <Container fluid>
 
-<Jumbotron>
+{/* <Jumbotron>
   <h1>Write A Blog Entry</h1>
-</Jumbotron>
+</Jumbotron> */}
 
   <form>
 
     <Input
       value={this.state.artist}
-      onChange={this.handleInputChange}
+      onChange={this.handleInputChangeBlog}
       name="artist"
       placeholder="Artist (required)"
     />
 
     <Input
       value={this.state.title}
-      onChange={this.handleInputChange}
+      onChange={this.handleInputChangeBlog}
       name="title"
       placeholder="Blog Title (required)"
     />
 
     <Input
       value={this.state.rating}
-      onChange={this.handleInputChange}
+      onChange={this.handleInputChangeBlog}
       name="rating"
       placeholder="Rating (required)"
     />
 
     <TextArea
       value={this.state.blog}
-      onChange={this.handleInputChange}
+      onChange={this.handleInputChangeBlog}
       name="blog"
       placeholder="Blog Entry (Required)"
     />
 
     <FormBtn
       disabled={!(this.state.rating && this.state.title)}
-      onClick={this.handleFormSubmit}
+      onClick={this.handleFormSubmitBlog}
     >
       Submit Blog
     </FormBtn>
 
   </form>
 
-  <Jumbotron>
+  {/* <Jumbotron>
     <h1>Prior Blog Entries</h1>
-  </Jumbotron>
+  </Jumbotron> */}
 
     {this.state.books.length ? (
       <List>
@@ -173,9 +223,7 @@ class Blog extends Component {
     )}
 
 </Container>
-);
-}
-}
+
       </div>
     );
   }
