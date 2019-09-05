@@ -10,6 +10,7 @@ import Home from "./pages/index";
 import Blog from "./pages/blog";
 import About from "./pages/about";
 import PrimarySearchAppBar from "./components/NavBar/navbar";
+import * as ROUTES from './components/Firebase/routes';
 
 
 class App extends Component {
@@ -50,6 +51,8 @@ class App extends Component {
       <Router>
         <div>
           <Switch>
+            <Route path={ROUTES.SIGN_IN}>Sign In </Route>
+            <Route path={ROUTES.SIGN_UP}>Sign Up </Route>
             <Route
               exact
               path="/"
