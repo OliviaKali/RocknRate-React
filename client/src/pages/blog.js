@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
-import axios from "axios";
 import SearchForm from "../components/SearchForm";
 import API from "../utils/API";
 import { Container } from "../components/Grid";
@@ -16,8 +15,6 @@ import { typography } from "@material-ui/system";
 
 class Blog extends Component {
   state = {
-    search: "",
-    results: [],
     books: [],
     artist: "",
     title: "",
@@ -25,14 +22,13 @@ class Blog extends Component {
     blog: ""
   };
   componentDidMount() {
-    this.loadBooks();
+    this.loadBlog();
   }
 
   // Loads all books  and sets them to this.state.books
-  loadBooks = () => {
-    API.getBooks()
+  loadBlog = () => {
+    API.getBlog()
       .then(res =>
-        //need to connect artist to props.artistName
         this.setState({
           books: res.data,
           artist: this.props.spotifyResults.name,
@@ -52,14 +48,12 @@ class Blog extends Component {
     });
   };
 
-  // When the form is submitted, use the API.saveBook method to save the book data
-  // Then reload books from the database
   handleFormSubmitBlog = event => {
     event.preventDefault();
 
     if (this.state.title && this.state.rating) {
       // console.log(this.state.artist)
-      API.saveBook({
+      API.saveBlog({
         artist: this.props.spotifyResults.name,
         title: this.state.title,
         rating: this.state.rating,
@@ -68,14 +62,6 @@ class Blog extends Component {
         .then(() => this.props.getBlogEntries(this.props.spotifyResults.name))
         .catch(err => console.log(err));
     }
-  };
-
-  handleInputChange = event => {
-    const name = event.target.name;
-    const value = event.target.value;
-    this.setState({
-      [name]: value
-    });
   };
 
   render() {
@@ -162,7 +148,7 @@ class Blog extends Component {
               value={this.state.title}
               onChange={this.handleInputChangeBlog}
               name="title"
-              placeholder="Blog Title (required)"
+              placeholder="Blogger Name (required)"
             />
 
             <Input
@@ -176,7 +162,7 @@ class Blog extends Component {
               value={this.state.blog}
               onChange={this.handleInputChangeBlog}
               name="blog"
-              placeholder="Blog Entry (Required)"
+              placeholder="Comment (Required)"
             />
 
             <FormBtn
@@ -195,13 +181,13 @@ class Blog extends Component {
                 return (
                   <ListItem key={book._id}>
                     <a href={"/books/" + book._id}>
-                      <p>Blog Artist: {book.artist}</p>
+                      <p>Artist: {book.artist}</p>
 
-                      <p>Blog Title: {book.title}</p>
+                      <p>Name: {book.title}</p>
 
                       <p>Rating: {book.rating}</p>
 
-                      <p>Blog Entry: {book.blog}</p>
+                      <p>Comment: {book.blog}</p>
                     </a>
                   </ListItem>
                 );

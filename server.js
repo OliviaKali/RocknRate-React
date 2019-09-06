@@ -22,7 +22,7 @@ const routes1 = require("./routes/index")
 app.use(routes);
 app.use(routes1);
 
-mongoose.connect("mongodb://localhost/reactreadinglist", { useNewUrlParser: true });
+mongoose.connect("mongodb://localhost/artistBlog", { useNewUrlParser: true });
 
 app.use(apiRoutes)
 

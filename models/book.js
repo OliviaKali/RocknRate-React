@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const bookSchema = new Schema({
+const blogSchema = new Schema({
   artist: { type: String},
   title: { type: String },
   rating: { type: String },
@@ -9,6 +9,6 @@ const bookSchema = new Schema({
   date: { type: Date, default: Date.now }
 });
 
-const Book = mongoose.model("Book", bookSchema);
+const Blog = mongoose.model("Blog", blogSchema);
 
-module.exports = Book;
+module.exports = Blog;
