@@ -13,7 +13,7 @@ import PrimarySearchAppBar from "./components/NavBar/navbar";
 
 
 class App extends Component {
-  state = { searchTerm: "", spotifyResults: [] };
+  state = { searchTerm: "", spotifyResults: [], blogEntries: [] };
 
   handleInputChange = event => {
     const name = event.target.name;
@@ -26,6 +26,7 @@ class App extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     this.searchArtist(this.state.searchTerm);
+    this.getBlogEntries(this.state.searchTerm)
   };
 
   searchArtist = search => {
@@ -41,6 +42,29 @@ class App extends Component {
       })
       .catch(err => console.log(err));
   };
+
+  getBlogEntries = artistName => {
+    console.log('hi')
+
+    axios.post('/api/books', {
+      artist: this.state.searchTerm
+    }).then(res => {
+      this.setState({blogEntries: res.data})
+    }).catch(err => console.log(err)) 
+    // axios({
+    //   method: "GET",
+    //   url: "/api/books/",
+    //   // url: "http://localhost:3001/api/search/",
+    //   // data: { artist: artistName }
+    // })
+    //   .then(res => {
+    //     console.log(res);
+
+    //     const artistBlogEntries = res.data.filter(artist => artist.artist.toLowerCase() === this.state.searchTerm.toLowerCase())
+    //     this.setState({ blogEntries: artistBlogEntries })
+    //   })
+    //   .catch(err => console.log(err));
+  }
 
   render() {
     console.log(this.state);
@@ -72,6 +96,7 @@ class App extends Component {
                   handleSearchChange={this.handleInputChange}
                   handleFormSubmit={this.handleFormSubmit}
                   spotifyResults={this.state.spotifyResults}
+                  blogEntries={this.state.blogEntries}
                 />
               )}
             />

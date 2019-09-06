@@ -13,7 +13,7 @@ class Blog extends Component {
     search: "",
     results: [],
       books: [],
-    artist: "",
+    artist: '',
     title: "",
     rating: "",
     blog: ""
@@ -27,7 +27,7 @@ class Blog extends Component {
     API.getBooks()
       .then(res =>
         //need to connect artist to props.artistName
-        this.setState({ books: res.data, artist: "", title: "", rating: "", blog: "" })
+        this.setState({ books: res.data, artist: this.props.spotifyResults.name, title: "", rating: "", blog: "" })
       )
       .catch(err => console.log(err));
   };
@@ -87,10 +87,14 @@ class Blog extends Component {
     });
   };
 
-  // When the form is submitted, search the Giphy API for `this.state.search`
+
+
+   // When the form is submitted, search the Giphy API for `this.state.search`
   handleFormSubmit = event => {
     event.preventDefault();
     this.searchArtist(this.state.search);
+    this.getBlogEntries(this.state.search)
+    
   };
 
   // //Change this function to react to have the artistName
@@ -187,9 +191,9 @@ class Blog extends Component {
   </Jumbotron> */}
   <h1>Prior Blog Entries</h1>
 
-    {this.state.books.length ? (
+    {this.props.blogEntries.length ? (
       <List>
-        {this.state.books.map(book => {
+        {this.props.blogEntries.map(book => {
           return (
 
             <ListItem key={book._id}>
