@@ -37,8 +37,14 @@ class App extends Component {
       data: { artist: search }
     })
       .then(res => {
-        console.log(res);
-        this.setState({ spotifyResults: res.data })
+        const {data} = res
+        console.log(data)
+        this.setState({ spotifyResults: data })
+        return data
+      })
+      .then(data => {
+        console.log(data)
+        this.getBlogEntries(data.name)
       })
       .catch(err => console.log(err));
   };
@@ -47,7 +53,7 @@ class App extends Component {
     console.log('hi')
 
     axios.post('/api/books', {
-      artist: this.state.searchTerm
+      artist: artistName
     }).then(res => {
       this.setState({blogEntries: res.data})
     }).catch(err => console.log(err)) 
