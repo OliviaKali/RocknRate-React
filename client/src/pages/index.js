@@ -13,8 +13,7 @@ class Home extends Component {
   searchArtist = search => {
     axios({
       method: "POST",
-      url: "/api/search/",
-      // url: "http://localhost:3001/api/search/",
+      url: "/api/artist/",
       data: { artist: search }
     })
       .then(res => {

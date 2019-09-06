@@ -31,7 +31,7 @@ class App extends Component {
   searchArtist = search => {
     axios({
       method: "POST",
-      url: "/api/search/",
+      url: "/api/artist/",
       data: { artist: search }
     })
       .then(res => {
@@ -48,17 +48,14 @@ class App extends Component {
   };
 
   getBlogEntries = artistName => {
-    console.log('hi')
-
-    axios.post('/api/books', {
+    axios.post('/api/blog', {
       artist: artistName
     }).then(res => {
       this.setState({blogEntries: res.data})
     }).catch(err => console.log(err)) 
     // axios({
     //   method: "GET",
-    //   url: "/api/books/",
-    //   // url: "http://localhost:3001/api/search/",
+    //   url: "/api/blog/",
     //   // data: { artist: artistName }
     // })
     //   .then(res => {
