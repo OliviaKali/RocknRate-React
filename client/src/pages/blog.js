@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
-import axios from "axios";
 import SearchForm from "../components/SearchForm";
 import API from "../utils/API";
 import { Container } from "../components/Grid";
@@ -10,8 +9,6 @@ import { Input, TextArea, FormBtn } from "../components/Form";
 
 class Blog extends Component {
   state = {
-    search: "",
-    results: [],
     books: [],
     artist: "",
     title: "",
@@ -24,9 +21,8 @@ class Blog extends Component {
 
   // Loads all books  and sets them to this.state.books
   loadBlog = () => {
-    API.getBooks()
+    API.getBlog()
       .then(res =>
-        //need to connect artist to props.artistName
         this.setState({
           books: res.data,
           artist: this.props.spotifyResults.name,
@@ -46,14 +42,12 @@ class Blog extends Component {
     });
   };
 
-  // When the form is submitted, use the API.saveBook method to save the book data
-  // Then reload books from the database
   handleFormSubmitBlog = event => {
     event.preventDefault();
 
     if (this.state.title && this.state.rating) {
       // console.log(this.state.artist)
-      API.saveBook({
+      API.saveBlog({
         artist: this.props.spotifyResults.name,
         title: this.state.title,
         rating: this.state.rating,
