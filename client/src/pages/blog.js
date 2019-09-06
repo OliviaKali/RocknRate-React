@@ -64,21 +64,6 @@ class Blog extends Component {
     }
   };
 
-  // searchArtist = search => {
-  //   axios({
-  //     method: "POST",
-  //     // url: "/api/search/",
-  //     url: "http://localhost:3001/api/search/",
-  //     data: { artist: search }
-  //   })
-  //     .then(res => {
-  //       console.log(res);
-  //       this.setState({ results: res.data });
-  //       // this.props.history.push("/artist");
-  //     })
-  //     .catch(err => console.log(err));
-  // };
-
   handleInputChange = event => {
     const name = event.target.name;
     const value = event.target.value;
@@ -87,8 +72,6 @@ class Blog extends Component {
     });
   };
 
-
-
    // When the form is submitted, search the Giphy API for `this.state.search`
   handleFormSubmit = event => {
     event.preventDefault();
@@ -96,10 +79,6 @@ class Blog extends Component {
     this.getBlogEntries(this.state.search)
     
   };
-
-  // //Change this function to react to have the artistName
-  //   //appear in the url
-  //   //example: localhost:3000/artist/beyonce
 
   render() {
     console.log(this.props);
@@ -142,20 +121,9 @@ class Blog extends Component {
         )};
         <Container fluid>
 
-{/* <Jumbotron>
-  <h1>Write A Blog Entry</h1>
-</Jumbotron> */}
  <h1>Write A Blog Entry</h1>
 
   <form>
-
-    {/* <Input
-      value={this.props.spotifyResults.name}
-      onChange={this.handleInputChangeBlog}
-      name="artist"
-      placeholder="Artist (required)"
-    /> */}
-
     <Input
       value={this.state.title}
       onChange={this.handleInputChangeBlog}
@@ -186,9 +154,6 @@ class Blog extends Component {
 
   </form>
 
-  {/* <Jumbotron>
-    <h1>Prior Blog Entries</h1>
-  </Jumbotron> */}
   <h1>Prior Blog Entries</h1>
 
     {this.props.blogEntries.length ? (
