@@ -12,7 +12,7 @@ class Blog extends Component {
   state = {
     search: "",
     results: [],
-      books: [],
+    books: [],
     artist: "",
     title: "",
     rating: "",
@@ -27,15 +27,14 @@ class Blog extends Component {
     API.getBooks()
       .then(res =>
         //need to connect artist to props.artistName
-        this.setState({ books: res.data, artist: "", title: "", rating: "", blog: "" })
+        this.setState({
+          books: res.data,
+          artist: this.props.spotifyResults.name,
+          title: "",
+          rating: "",
+          blog: ""
+        })
       )
-      .catch(err => console.log(err));
-  };
-
-  // Deletes a book from the database with a given id, then reloads books from the db
-  deleteBook = id => {
-    API.deleteBook(id)
-      .then(res => this.loadBooks())
       .catch(err => console.log(err));
   };
 
@@ -51,6 +50,7 @@ class Blog extends Component {
   // Then reload books from the database
   handleFormSubmitBlog = event => {
     event.preventDefault();
+
     if (this.state.title && this.state.rating) {
       // console.log(this.state.artist)
       API.saveBook({
@@ -59,25 +59,10 @@ class Blog extends Component {
         rating: this.state.rating,
         blog: this.state.blog
       })
-        .then(res => this.loadBooks())
+        .then(() => this.props.getBlogEntries(this.props.spotifyResults.name))
         .catch(err => console.log(err));
     }
   };
-
-  // searchArtist = search => {
-  //   axios({
-  //     method: "POST",
-  //     // url: "/api/search/",
-  //     url: "http://localhost:3001/api/search/",
-  //     data: { artist: search }
-  //   })
-  //     .then(res => {
-  //       console.log(res);
-  //       this.setState({ results: res.data });
-  //       // this.props.history.push("/artist");
-  //     })
-  //     .catch(err => console.log(err));
-  // };
 
   handleInputChange = event => {
     const name = event.target.name;
@@ -86,16 +71,6 @@ class Blog extends Component {
       [name]: value
     });
   };
-
-  // When the form is submitted, search the Giphy API for `this.state.search`
-  handleFormSubmit = event => {
-    event.preventDefault();
-    this.searchArtist(this.state.search);
-  };
-
-  // //Change this function to react to have the artistName
-  //   //appear in the url
-  //   //example: localhost:3000/artist/beyonce
 
   render() {
     console.log(this.props);
@@ -135,97 +110,65 @@ class Blog extends Component {
               />
             </article>
           </>
-        )};
+        )}
+        ;
         <Container fluid>
+          <h1>Write A Blog Entry</h1>
 
-{/* <Jumbotron>
-  <h1>Write A Blog Entry</h1>
-</Jumbotron> */}
- <h1>Write A Blog Entry</h1>
+          <form>
+            <Input
+              value={this.state.title}
+              onChange={this.handleInputChangeBlog}
+              name="title"
+              placeholder="Blog Title (required)"
+            />
 
-  <form>
+            <Input
+              value={this.state.rating}
+              onChange={this.handleInputChangeBlog}
+              name="rating"
+              placeholder="Rating (required)"
+            />
 
-    {/* <Input
-      value={this.props.spotifyResults.name}
-      onChange={this.handleInputChangeBlog}
-      name="artist"
-      placeholder="Artist (required)"
-    /> */}
+            <TextArea
+              value={this.state.blog}
+              onChange={this.handleInputChangeBlog}
+              name="blog"
+              placeholder="Blog Entry (Required)"
+            />
 
-    <Input
-      value={this.state.title}
-      onChange={this.handleInputChangeBlog}
-      name="title"
-      placeholder="Blog Title (required)"
-    />
+            <FormBtn
+              disabled={!(this.state.rating && this.state.title)}
+              onClick={this.handleFormSubmitBlog}
+            >
+              Submit Blog
+            </FormBtn>
+          </form>
 
-    <Input
-      value={this.state.rating}
-      onChange={this.handleInputChangeBlog}
-      name="rating"
-      placeholder="Rating (required)"
-    />
+          <h1>Prior Blog Entries</h1>
 
-    <TextArea
-      value={this.state.blog}
-      onChange={this.handleInputChangeBlog}
-      name="blog"
-      placeholder="Blog Entry (Required)"
-    />
+          {this.props.blogEntries.length ? (
+            <List>
+              {this.props.blogEntries.map(book => {
+                return (
+                  <ListItem key={book._id}>
+                    <a href={"/books/" + book._id}>
+                      <p>Blog Artist: {book.artist}</p>
 
-    <FormBtn
-      disabled={!(this.state.rating && this.state.title)}
-      onClick={this.handleFormSubmitBlog}
-    >
-      Submit Blog
-    </FormBtn>
+                      <p>Blog Title: {book.title}</p>
 
-  </form>
+                      <p>Rating: {book.rating}</p>
 
-  {/* <Jumbotron>
-    <h1>Prior Blog Entries</h1>
-  </Jumbotron> */}
-  <h1>Prior Blog Entries</h1>
-
-    {this.state.books.length ? (
-      <List>
-        {this.state.books.map(book => {
-          return (
-
-            <ListItem key={book._id}>
-
-              <a href={"/books/" + book._id}>
-
-                <p>
-                  Blog Artist: {book.artist}
-                </p>
-
-                <p>
-                  Blog Title: {book.title}
-                </p>
-
-                <p>
-                  Rating: {book.rating}
-                </p>
-
-                <p>
-                  Blog Entry: {book.blog}
-                </p>
-
-              </a>
-
-            </ListItem>
-
-          );
-        })}
-      </List>
-
-    ) : (
-      <h3>No Blogs to Display</h3>
-    )}
-
-</Container>
-
+                      <p>Blog Entry: {book.blog}</p>
+                    </a>
+                  </ListItem>
+                );
+              })}
+            </List>
+          ) : (
+            <h3>No Blogs to Display</h3>
+          )}
+        </Container>
       </div>
     );
   }
