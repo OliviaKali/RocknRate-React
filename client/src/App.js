@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import {
   BrowserRouter as Router,
   Route,
-  Redirect,
   Switch
 } from "react-router-dom";
 import axios from "axios";
@@ -33,7 +32,6 @@ class App extends Component {
     axios({
       method: "POST",
       url: "/api/search/",
-      // url: "http://localhost:3001/api/search/",
       data: { artist: search }
     })
       .then(res => {

@@ -32,13 +32,6 @@ class Blog extends Component {
       .catch(err => console.log(err));
   };
 
-  // Deletes a book from the database with a given id, then reloads books from the db
-  deleteBook = id => {
-    API.deleteBook(id)
-      .then(res => this.loadBooks())
-      .catch(err => console.log(err));
-  };
-
   // Handles updating component state when the user types into the input field
   handleInputChangeBlog = event => {
     const { name, value } = event.target;
