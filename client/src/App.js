@@ -68,7 +68,7 @@ class App extends Component {
     console.log(this.state);
     return (
       <div>
-      <PrimarySearchAppBar />
+        <PrimarySearchAppBar/>
       <Router>
         <div>
         <PossibleSignOut authUser={this.state.authUser}>
