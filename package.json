@@ -31,6 +31,7 @@
     "mongoose": "^5.3.16",
     "node-spotify-api": "^1.1.1",
     "passport": "^0.4.0",
-    "passport-spotify": "^1.1.0"
+    "passport-spotify": "^1.1.0",
+    "recompose": "^0.30.0"
   }
 }

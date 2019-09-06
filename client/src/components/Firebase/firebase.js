@@ -1,5 +1,7 @@
 import app from 'firebase/app';
 import 'firebase/auth';
+require("dotenv").config();
+
 const firebaseConfig = {
     apiKey: "AIzaSyBycRVmUhAIHJo4oMfklCyRkibQd1Sg_UI",
     authDomain: "rocknrate.firebaseapp.com",
