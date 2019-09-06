@@ -34,7 +34,7 @@ export default function SearchForm(props) {
 
   return (
     <div className={classes.container}>
-    <label htmlFor="search">Search:</label>
+    <label htmlFor="search"></label>
       <Input
         defaultValue="Hello world"
         className={classes.input}
@@ -51,7 +51,7 @@ export default function SearchForm(props) {
       />
       <Button onClick={props.handleFormSubmit} variant="contained" color="primary" className={classes.button}>
         Search
-        <Icon className={classes.rightIcon}>send</Icon>
+        <Icon className={classes.rightIcon}>search</Icon>
       </Button>
       {/* <button onClick={props.handleFormSubmit} className="btn btn-primary mt-3">
           Search
