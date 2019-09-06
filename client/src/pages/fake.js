@@ -6,12 +6,6 @@ import API from "../utils/API";
 import { Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 import { Input, TextArea, FormBtn } from "../components/Form";
-import PaperSheet from "../components/Paper/paper"
-import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
-import styles from '../pages/blog.css'
-import { typography } from "@material-ui/system";
 // import spotifyAPI from "../utils/spotifyAPI";
 
 class Blog extends Component {
@@ -107,21 +101,7 @@ class Blog extends Component {
     console.log(this.props);
     return (
       <div>
-        
-        <Grid container  spacing={1}>
-        <Grid item xs={12}>
-      <Grid container justify="center">
-      <Paper className={styles.paper1}>
-        <Typography className={styles.paper1}>Hello</Typography>
-      </Paper>
-        </Grid>
-      </Grid>
-      <Grid item xs={6}>
-      <Grid container justify="center">
-          
-
-        
-        <Paper>
+        <h1>Working</h1>
         <SearchForm
           search={this.props.searchTerm}
           handleFormSubmit={this.props.handleFormSubmit}
@@ -141,15 +121,7 @@ class Blog extends Component {
               frameBorder="0"
               allowtransparency="true"
               allow="encrypted-media"
-            ></iframe></>
-        )};
-            </Paper>
-            </Grid>
-            </Grid>
-            
-            <Grid item xs={6}>
-      <Grid container justify="center">
-            <Paper>
+            ></iframe>
 
             <article className="tile is-child box">
               <p className="title" value={this.props.spotifyResults.name}>
@@ -162,14 +134,8 @@ class Blog extends Component {
                 alt={this.props.spotifyResults.name}
               />
             </article>
-            </Paper>
-            </Grid>
-            </Grid>
-            
-         
-        
-            <Grid item xs={12}>
-      <Grid container justify="center">
+          </>
+        )};
         <Container fluid>
 
 {/* <Jumbotron>
@@ -259,9 +225,7 @@ class Blog extends Component {
     )}
 
 </Container>
-</Grid>
-</Grid>
-</Grid>
+
       </div>
     );
   }
