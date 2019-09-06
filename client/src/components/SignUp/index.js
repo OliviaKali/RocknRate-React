@@ -117,7 +117,7 @@ class SignUpFormBase extends Component {
             Sign up
           </Typography>
           <form className={useStyles.form} noValidate>
-            <Grid container spacing={2}>
+            <Grid container  spacing={2}>
               <Grid item xs={12}>
                 <TextField
                   name="username"

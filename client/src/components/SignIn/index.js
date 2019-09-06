@@ -9,6 +9,7 @@ import Link from '@material-ui/core/Link';
 import Paper from '@material-ui/core/Paper';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
+import Container from '@material-ui/core/Container';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
@@ -52,6 +53,7 @@ const useStyles = makeStyles(theme => ({
   form: {
     width: '100%', // Fix IE 11 issue.
     marginTop: theme.spacing(1),
+    
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
@@ -59,7 +61,7 @@ const useStyles = makeStyles(theme => ({
 }));
 const SignInPage = () => (
   <div>
-    <h1>SignIn</h1>
+    <h1>Sign In</h1>
     <SignInForm />
     <SignUpLink />
   </div>
@@ -95,9 +97,8 @@ class SignInFormBase extends Component {
     const isInvalid = password === '' || email === '';
     return (
       <form onSubmit={this.onSubmit}>
-      <Grid container component="main" className={useStyles.root}>
+      <Container component="main">
         <CssBaseline />
-        <Grid item xs={false} sm={4} md={7} className={useStyles.image} />
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
           <div className={useStyles.paper}>
             <Avatar className={useStyles.avatar}>
@@ -147,7 +148,7 @@ class SignInFormBase extends Component {
             </form>
           </div>
         </Grid>
-      </Grid>
+      </Container>
       </form>
     );
   }
