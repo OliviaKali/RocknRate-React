@@ -10,7 +10,6 @@ import Blog from "./pages/blog";
 import About from "./pages/about";
 import PrimarySearchAppBar from "./components/NavBar/navbar";
 
-
 class App extends Component {
   state = { searchTerm: "", spotifyResults: [], blogEntries: [] };
 

@@ -19,11 +19,11 @@ class Blog extends Component {
     blog: ""
   };
   componentDidMount() {
-    this.loadBooks();
+    this.loadBlog();
   }
 
   // Loads all books  and sets them to this.state.books
-  loadBooks = () => {
+  loadBlog = () => {
     API.getBooks()
       .then(res =>
         //need to connect artist to props.artistName
@@ -62,14 +62,6 @@ class Blog extends Component {
         .then(() => this.props.getBlogEntries(this.props.spotifyResults.name))
         .catch(err => console.log(err));
     }
-  };
-
-  handleInputChange = event => {
-    const name = event.target.name;
-    const value = event.target.value;
-    this.setState({
-      [name]: value
-    });
   };
 
   render() {
@@ -120,7 +112,7 @@ class Blog extends Component {
               value={this.state.title}
               onChange={this.handleInputChangeBlog}
               name="title"
-              placeholder="Blog Title (required)"
+              placeholder="Blogger Name (required)"
             />
 
             <Input
@@ -134,7 +126,7 @@ class Blog extends Component {
               value={this.state.blog}
               onChange={this.handleInputChangeBlog}
               name="blog"
-              placeholder="Blog Entry (Required)"
+              placeholder="Comment (Required)"
             />
 
             <FormBtn
@@ -153,13 +145,13 @@ class Blog extends Component {
                 return (
                   <ListItem key={book._id}>
                     <a href={"/books/" + book._id}>
-                      <p>Blog Artist: {book.artist}</p>
+                      <p>Artist: {book.artist}</p>
 
-                      <p>Blog Title: {book.title}</p>
+                      <p>Name: {book.title}</p>
 
                       <p>Rating: {book.rating}</p>
 
-                      <p>Blog Entry: {book.blog}</p>
+                      <p>Comment: {book.blog}</p>
                     </a>
                   </ListItem>
                 );
