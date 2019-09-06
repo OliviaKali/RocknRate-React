@@ -12,8 +12,8 @@ class Blog extends Component {
   state = {
     search: "",
     results: [],
-      books: [],
-    artist: '',
+    books: [],
+    artist: "",
     title: "",
     rating: "",
     blog: ""
@@ -27,7 +27,13 @@ class Blog extends Component {
     API.getBooks()
       .then(res =>
         //need to connect artist to props.artistName
-        this.setState({ books: res.data, artist: this.props.spotifyResults.name, title: "", rating: "", blog: "" })
+        this.setState({
+          books: res.data,
+          artist: this.props.spotifyResults.name,
+          title: "",
+          rating: "",
+          blog: ""
+        })
       )
       .catch(err => console.log(err));
   };
@@ -44,6 +50,7 @@ class Blog extends Component {
   // Then reload books from the database
   handleFormSubmitBlog = event => {
     event.preventDefault();
+
     if (this.state.title && this.state.rating) {
       // console.log(this.state.artist)
       API.saveBook({
@@ -52,7 +59,7 @@ class Blog extends Component {
         rating: this.state.rating,
         blog: this.state.blog
       })
-        .then(res => this.loadBooks())
+        .then(() => this.props.getBlogEntries(this.props.spotifyResults.name))
         .catch(err => console.log(err));
     }
   };
@@ -63,14 +70,6 @@ class Blog extends Component {
     this.setState({
       [name]: value
     });
-  };
-
-   // When the form is submitted, search the Giphy API for `this.state.search`
-  handleFormSubmit = event => {
-    event.preventDefault();
-    this.searchArtist(this.state.search);
-    this.getBlogEntries(this.state.search)
-    
   };
 
   render() {
@@ -111,83 +110,65 @@ class Blog extends Component {
               />
             </article>
           </>
-        )};
+        )}
+        ;
         <Container fluid>
+          <h1>Write A Blog Entry</h1>
 
- <h1>Write A Blog Entry</h1>
+          <form>
+            <Input
+              value={this.state.title}
+              onChange={this.handleInputChangeBlog}
+              name="title"
+              placeholder="Blog Title (required)"
+            />
 
-  <form>
-    <Input
-      value={this.state.title}
-      onChange={this.handleInputChangeBlog}
-      name="title"
-      placeholder="Blog Title (required)"
-    />
+            <Input
+              value={this.state.rating}
+              onChange={this.handleInputChangeBlog}
+              name="rating"
+              placeholder="Rating (required)"
+            />
 
-    <Input
-      value={this.state.rating}
-      onChange={this.handleInputChangeBlog}
-      name="rating"
-      placeholder="Rating (required)"
-    />
+            <TextArea
+              value={this.state.blog}
+              onChange={this.handleInputChangeBlog}
+              name="blog"
+              placeholder="Blog Entry (Required)"
+            />
 
-    <TextArea
-      value={this.state.blog}
-      onChange={this.handleInputChangeBlog}
-      name="blog"
-      placeholder="Blog Entry (Required)"
-    />
+            <FormBtn
+              disabled={!(this.state.rating && this.state.title)}
+              onClick={this.handleFormSubmitBlog}
+            >
+              Submit Blog
+            </FormBtn>
+          </form>
 
-    <FormBtn
-      disabled={!(this.state.rating && this.state.title)}
-      onClick={this.handleFormSubmitBlog}
-    >
-      Submit Blog
-    </FormBtn>
+          <h1>Prior Blog Entries</h1>
 
-  </form>
+          {this.props.blogEntries.length ? (
+            <List>
+              {this.props.blogEntries.map(book => {
+                return (
+                  <ListItem key={book._id}>
+                    <a href={"/books/" + book._id}>
+                      <p>Blog Artist: {book.artist}</p>
 
-  <h1>Prior Blog Entries</h1>
+                      <p>Blog Title: {book.title}</p>
 
-    {this.props.blogEntries.length ? (
-      <List>
-        {this.props.blogEntries.map(book => {
-          return (
+                      <p>Rating: {book.rating}</p>
 
-            <ListItem key={book._id}>
-
-              <a href={"/books/" + book._id}>
-
-                <p>
-                  Blog Artist: {book.artist}
-                </p>
-
-                <p>
-                  Blog Title: {book.title}
-                </p>
-
-                <p>
-                  Rating: {book.rating}
-                </p>
-
-                <p>
-                  Blog Entry: {book.blog}
-                </p>
-
-              </a>
-
-            </ListItem>
-
-          );
-        })}
-      </List>
-
-    ) : (
-      <h3>No Blogs to Display</h3>
-    )}
-
-</Container>
-
+                      <p>Blog Entry: {book.blog}</p>
+                    </a>
+                  </ListItem>
+                );
+              })}
+            </List>
+          ) : (
+            <h3>No Blogs to Display</h3>
+          )}
+        </Container>
       </div>
     );
   }

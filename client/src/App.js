@@ -101,6 +101,7 @@ class App extends Component {
                   handleFormSubmit={this.handleFormSubmit}
                   spotifyResults={this.state.spotifyResults}
                   blogEntries={this.state.blogEntries}
+                  getBlogEntries={this.getBlogEntries}
                 />
               )}
             />
