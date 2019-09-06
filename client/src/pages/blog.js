@@ -15,9 +15,9 @@ import { typography } from "@material-ui/system";
 
 class Blog extends Component {
   state = {
-    books: [],
+    blogs: [],
     artist: "",
-    title: "",
+    blogger: "",
     rating: "",
     blog: ""
   };
@@ -25,14 +25,14 @@ class Blog extends Component {
     this.loadBlog();
   }
 
-  // Loads all books  and sets them to this.state.books
+  // Loads all blogs  and sets them to this.state.blogs
   loadBlog = () => {
     API.getBlog()
       .then(res =>
         this.setState({
-          books: res.data,
+          blogs: res.data,
           artist: this.props.spotifyResults.name,
-          title: "",
+          blogger: "",
           rating: "",
           blog: ""
         })
@@ -51,11 +51,10 @@ class Blog extends Component {
   handleFormSubmitBlog = event => {
     event.preventDefault();
 
-    if (this.state.title && this.state.rating) {
-      // console.log(this.state.artist)
+    if (this.state.blogger && this.state.rating) {
       API.saveBlog({
         artist: this.props.spotifyResults.name,
-        title: this.state.title,
+        blogger: this.state.blogger,
         rating: this.state.rating,
         blog: this.state.blog
       })
@@ -145,9 +144,9 @@ class Blog extends Component {
 
           <form>
             <Input
-              value={this.state.title}
+              value={this.state.blogger}
               onChange={this.handleInputChangeBlog}
-              name="title"
+              name="blogger"
               placeholder="Blogger Name (required)"
             />
 
@@ -166,7 +165,7 @@ class Blog extends Component {
             />
 
             <FormBtn
-              disabled={!(this.state.rating && this.state.title)}
+              disabled={!(this.state.rating && this.state.blogger)}
               onClick={this.handleFormSubmitBlog}
             >
               Submit Blog
@@ -177,17 +176,17 @@ class Blog extends Component {
 
           {this.props.blogEntries.length ? (
             <List>
-              {this.props.blogEntries.map(book => {
+              {this.props.blogEntries.map(blog => {
                 return (
-                  <ListItem key={book._id}>
-                    <a href={"/books/" + book._id}>
-                      <p>Artist: {book.artist}</p>
+                  <ListItem key={blog._id}>
+                    <a href={"/blogs/" + blog._id}>
+                      <p>Artist: {blog.artist}</p>
 
-                      <p>Name: {book.title}</p>
+                      <p>Name: {blog.blogger}</p>
 
-                      <p>Rating: {book.rating}</p>
+                      <p>Rating: {blog.rating}</p>
 
-                      <p>Comment: {book.blog}</p>
+                      <p>Comment: {blog.blog}</p>
                     </a>
                   </ListItem>
                 );
