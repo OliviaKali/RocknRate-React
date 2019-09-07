@@ -9,10 +9,33 @@ import Home from "./pages/index";
 import Blog from "./pages/blog";
 import About from "./pages/about";
 import PrimarySearchAppBar from "./components/NavBar/navbar";
+import SignUpPage, { SignUpForm } from "./components/SignUp/index";
+import SignInPage, { SignInForm } from "./components/SignIn/index";
+import * as ROUTES from './components/Firebase/routes';
+import SignOutButton from './components/SignOut';
+import Account from './components/Account/';
+import {withFirebase} from './components/Firebase';
+const PossibleSignOut = ({ authUser }) => (
+  <>{authUser ? <><SignOutButton /> <Switch><Route exact path="/signup"/>
+  <Route exact path="/signin"/><Route exact path = "/account"><Account/></Route></Switch></>: <Switch><Route path="/signup"> <SignUpPage/></Route>
+  <Route path="/signin"> <SignInPage/></Route></Switch>
+  }</>
+);
+
 
 class App extends Component {
-  state = { searchTerm: "", spotifyResults: [], blogEntries: [] };
-
+  state = { searchTerm: "", spotifyResults: [], blogEntries: [], authUser: null };
+  
+  componentDidMount() {
+    this.listener = this.props.firebase.auth.onAuthStateChanged(authUser => {
+      authUser
+        ? this.setState({ authUser })
+        : this.setState({ authUser: null });
+    });
+  }
+  componentWillUnmount() {
+    this.listener();
+  }
   handleInputChange = event => {
     const name = event.target.name;
     const value = event.target.value;
@@ -73,6 +96,7 @@ class App extends Component {
       <PrimarySearchAppBar />
       <Router>
         <div>
+        <PossibleSignOut authUser={this.state.authUser}/>
           <Switch>
             <Route
               exact
@@ -110,4 +134,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withFirebase(App);
