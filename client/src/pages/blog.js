@@ -324,10 +324,14 @@ class Blog extends Component {
       <ListItem key={book._id} divider>
       <Divider />
         <ListItemText id="bookArist" className="readBlogs"/>
-        <Typography><p><bold>Artist: </bold>{book.artist}</p></Typography>
+        <Typography><p><bold>Artist: </bold>{book.artist}</p>
+        <p><bold>Name: </bold>{book.title}</p>
+        <p><bold>Rating: </bold>{book.rating}</p>
+        <p><bold>Comment: </bold>{book.blog}</p>
+        </Typography>
       </ListItem>
       <Divider />
-      <ListItem button divider>
+      {/* <ListItem button divider>
         <ListItemText id="bookTitle" className="readBlogs"/>
         <Typography><p><bold>Name: </bold>{book.title}</p></Typography>
       </ListItem>
@@ -340,7 +344,8 @@ class Blog extends Component {
       <ListItem button divider>
         <ListItemText id="bookBlog" className="readBlogs"/>
         <Typography><p><bold>Comment: </bold>{book.blog}</p></Typography>
-      </ListItem></>
+      </ListItem> */}
+      </>
       );
               })}
     </List>
