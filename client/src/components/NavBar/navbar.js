@@ -28,7 +28,7 @@ export default function ButtonAppBar() {
       <AppBar position="static" id='navBar'>
         <Toolbar>
 
-          <Typography variant="h4" className={classes.title} id='rockNrate'>
+          <Typography variant="h3" className={classes.title} id='rockNrate'>
             RocknRate
           </Typography>
           <Button color="inherit"><Typography variant="h6">Login</Typography></Button>
