@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Input from '@material-ui/core/Input';
 import Icon from '@material-ui/core/Icon';
 import Button from '@material-ui/core/Button';
+import styles from '../pages/blog.css'
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -50,7 +51,7 @@ export default function SearchForm(props) {
           placeholder="Search Artist"
           id="search"
       />
-      <Button onClick={props.handleFormSubmit} variant="contained" color="" className={classes.button}>
+      <Button onClick={props.handleFormSubmit} variant="contained" color="" className={classes.button} id="standardButton">
         Search
         <Icon className={classes.rightIcon}>search</Icon>
       </Button>

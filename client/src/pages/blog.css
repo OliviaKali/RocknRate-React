@@ -87,9 +87,11 @@ body{
 #rockNrate{
     font-family: 'Lobster', cursive;
     text-align: center;
+    text-decoration: none;
+    color: white;
 }
 #navBar{
-    background-color: #a1a4aa;
+    background-color: rgba(255,255,255,0.5);;
 
     
 }
@@ -105,7 +107,11 @@ body{
     justify-content: center;
     right: -50px;
     bottom: -40px;
+    background-color: orange;
     
+}
+#standardButton{
+    background-color: orange;
 }
 #outlined-dense-multiline{
     /* width: 750px; */

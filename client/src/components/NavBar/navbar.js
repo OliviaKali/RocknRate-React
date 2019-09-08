@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import  styles from '../../pages/blog.css'
+import styles from '../../pages/blog.css'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -29,7 +29,7 @@ export default function ButtonAppBar() {
         <Toolbar>
 
           <Typography variant="h3" className={classes.title} id='rockNrate'>
-            RocknRate
+            <a id='rockNrate' href="/">RocknRate</a>
           </Typography>
           <Button color="inherit"><Typography variant="h6">Login</Typography></Button>
         </Toolbar>

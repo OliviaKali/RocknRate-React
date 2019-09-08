@@ -269,7 +269,7 @@ class Blog extends Component {
 
 
             <Button enabled={!(this.state.rating && this.state.title)}
-              onClick={this.handleFormSubmitBlog} variant="contained" color="primary" id="submitButton" >
+              onClick={this.handleFormSubmitBlog} variant="contained" color="" id="submitButton" >
         Submit
         <CloudUploadIcon/>
       </Button>
