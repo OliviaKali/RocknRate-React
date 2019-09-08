@@ -79,6 +79,14 @@ body{
 
 
 }
+#rockNrate{
+    font-family: 'Lobster', cursive;
+    
+}
+#navBar{
+    background-color: grey;
+    
+}
 #blogEntries{
     text-align: center;
 }

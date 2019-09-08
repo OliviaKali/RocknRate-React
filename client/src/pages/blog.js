@@ -326,17 +326,17 @@ class Blog extends Component {
         <ListItemText id="bookArist" className="readBlogs"/>
         <Typography><p><bold>Artist: </bold>{book.artist}</p></Typography>
       </ListItem>
-      <Divider />
+      
       <ListItem button divider>
         <ListItemText id="bookTitle" className="readBlogs"/>
         <Typography><p><bold>Name: </bold>{book.title}</p></Typography>
       </ListItem>
-      <Divider />
+      
       <ListItem button divider>
         <ListItemText id="bookRating" className="readBlogs"/>
         <Typography><p><bold>Rating: </bold>{book.rating}</p></Typography>
       </ListItem>
-      <Divider />
+      
       <ListItem button divider>
         <ListItemText id="bookBlog" className="readBlogs"/>
         <Typography><p><bold>Comment: </bold>{book.blog}</p></Typography>
