@@ -72,7 +72,9 @@ class Blog extends Component {
         rating: this.state.rating,
         blog: this.state.blog
       })
-        .then(() => this.props.getBlogEntries(this.props.spotifyResults.name))
+      .then(() => {this.props.getBlogEntries(this.props.spotifyResults.name); 
+        this.setState({blogger: "", rating: "", blog: ""});} )
+        // .then(() => this.props.getBlogEntries(this.props.spotifyResults.name))
         .catch(err => console.log(err));
     }
   };
