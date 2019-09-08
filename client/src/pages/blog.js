@@ -29,9 +29,9 @@ import ListItemText from '@material-ui/core/ListItemText';
 
 class Blog extends Component {
   state = {
-    books: [],
+    blogs: [],
     artist: "",
-    title: "",
+    blogger: "",
     rating: "",
     blog: ""
   };
@@ -39,14 +39,14 @@ class Blog extends Component {
     this.loadBlog();
   }
 
-  // Loads all books  and sets them to this.state.books
+  // Loads all blogs  and sets them to this.state.blogs
   loadBlog = () => {
     API.getBlog()
       .then(res =>
         this.setState({
-          books: res.data,
+          blogs: res.data,
           artist: this.props.spotifyResults.name,
-          title: "",
+          blogger: "",
           rating: "",
           blog: ""
         })
@@ -65,11 +65,10 @@ class Blog extends Component {
   handleFormSubmitBlog = event => {
     event.preventDefault();
 
-    if (this.state.title && this.state.rating) {
-      // console.log(this.state.artist)
+    if (this.state.blogger && this.state.rating) {
       API.saveBlog({
         artist: this.props.spotifyResults.name,
-        title: this.state.title,
+        blogger: this.state.blogger,
         rating: this.state.rating,
         blog: this.state.blog
       })
@@ -198,6 +197,7 @@ class Blog extends Component {
           
           {/* <Grid container id='blogField'> */}
           <form>
+
           <TextField
         id="outlined-full-width"
         label="Name"
@@ -235,8 +235,9 @@ class Blog extends Component {
             {/* <Input
             id="filled-full-width"
               value={this.state.title}
+
               onChange={this.handleInputChangeBlog}
-              name="title"
+              name="blogger"
               placeholder="Blogger Name (required)"
             /> */}
 {/* 
@@ -266,6 +267,7 @@ class Blog extends Component {
               placeholder="Comment (Required)"
             /> */}
 
+
             <Button enabled={!(this.state.rating && this.state.title)}
               onClick={this.handleFormSubmitBlog} variant="contained" color="primary" id="submitButton" >
         Submit
@@ -273,6 +275,7 @@ class Blog extends Component {
       </Button>
             {/* <FormBtn
               disabled={!(this.state.rating && this.state.title)}
+
               onClick={this.handleFormSubmitBlog}
             >
               Submit Blog
@@ -293,19 +296,20 @@ class Blog extends Component {
 
           <Typography id="blogEntries"><h1>Blog Entries</h1></Typography>
 
+
           {/* {this.props.blogEntries.length ? (
             <Card>
               {this.props.blogEntries.map(book => {
                 return (
-                  <ListItem key={book._id}>
-                    <a href={"/books/" + book._id}>
-                      <p>Artist: {book.artist}</p>
+                  <ListItem key={blog._id}>
+                    <a href={"/blogs/" + blog._id}>
+                      <p>Artist: {blog.artist}</p>
 
-                      <p>Name: {book.title}</p>
+                      <p>Name: {blog.blogger}</p>
 
-                      <p>Rating: {book.rating}</p>
+                      <p>Rating: {blog.rating}</p>
 
-                      <p>Comment: {book.blog}</p>
+                      <p>Comment: {blog.blog}</p>
                     </a>
                   </ListItem>
                 );
