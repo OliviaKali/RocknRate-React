@@ -57,7 +57,7 @@ body{
 }
  #search-artist{
 
-    width: 650px;
+    width: 100%;
     float: right;
     justify-content: right;
     
