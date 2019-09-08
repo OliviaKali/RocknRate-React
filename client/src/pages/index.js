@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import axios from "axios";
 import SearchForm from "../components/SearchForm";
 import { withRouter } from "react-router-dom";
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
 
 class Home extends Component {
   state = {
@@ -37,12 +40,21 @@ class Home extends Component {
     console.log(this.props)
     return (
       <div>
-        <h1>home page</h1>
+        
+        <Grid container justify='center'>
+      <Grid item xs={3}>
+      <Paper id="search-index">
+      <Typography>
         <SearchForm
           search={this.props.searchTerm}
           handleFormSubmit={this.redirect}
           handleInputChange={this.props.handleSearchChange}
         />
+        </Typography>
+        </Paper>
+        </Grid>
+        </Grid>
+
       </div>
     );
   }

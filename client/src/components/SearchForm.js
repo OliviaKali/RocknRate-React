@@ -8,6 +8,7 @@ const useStyles = makeStyles(theme => ({
   container: {
     display: 'flex',
     flexWrap: 'wrap',
+    float: 'right',
   },
   input: {
     margin: theme.spacing(1),
