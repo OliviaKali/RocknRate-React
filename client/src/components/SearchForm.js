@@ -50,7 +50,7 @@ export default function SearchForm(props) {
           placeholder="Search Artist"
           id="search"
       />
-      <Button onClick={props.handleFormSubmit} variant="contained" color="primary" className={classes.button}>
+      <Button onClick={props.handleFormSubmit} variant="contained" color="" className={classes.button}>
         Search
         <Icon className={classes.rightIcon}>search</Icon>
       </Button>
