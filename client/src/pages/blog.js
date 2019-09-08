@@ -21,9 +21,9 @@ import ListItemText from '@material-ui/core/ListItemText';
 
 class Blog extends Component {
   state = {
-    books: [],
+    blogs: [],
     artist: "",
-    title: "",
+    blogger: "",
     rating: "",
     blog: ""
   };
@@ -36,9 +36,9 @@ class Blog extends Component {
     API.getBlog()
       .then(res =>
         this.setState({
-          books: res.data,
+          blogs: res.data,
           artist: this.props.spotifyResults.name,
-          title: "",
+          blogger: "",
           rating: "",
           blog: ""
         })
@@ -57,11 +57,11 @@ class Blog extends Component {
   handleFormSubmitBlog = event => {
     event.preventDefault();
 
-    if (this.state.title && this.state.rating) {
+    if (this.state.blogger && this.state.rating) {
       // console.log(this.state.artist)
       API.saveBlog({
         artist: this.props.spotifyResults.name,
-        title: this.state.title,
+        blogger: this.state.blogger,
         rating: this.state.rating,
         blog: this.state.blog
       })
@@ -159,9 +159,9 @@ class Blog extends Component {
                       InputLabelProps={{
                         shrink: true,
                       }}
-                      value={this.state.title}
+                      value={this.state.blogger}
                       onChange={this.handleInputChangeBlog}
-                      name="title"
+                      name="blogger"
                       placeholder="Blogger Name (required)"
                     />
                     <TextField
@@ -213,7 +213,7 @@ class Blog extends Component {
               placeholder="Comment (Required)"
             /> */}
 
-                    <Button enabled={!(this.state.rating && this.state.title)}
+                    <Button enabled={!(this.state.rating && this.state.blogger)}
                       onClick={this.handleFormSubmitBlog} variant="contained" color="primary" id="submitButton" >
                       Submit
         <CloudUploadIcon />
@@ -253,25 +253,25 @@ class Blog extends Component {
 
                       {this.props.blogEntries.length ? (
                         <List component="nav" aria-label="mailbox folders">
-                          {this.props.blogEntries.map(book => {
+                          {this.props.blogEntries.map(blogEntry => {
                             return (
                               <>
-                                <ListItem key={book._id} divider>
+                                <ListItem key={blogEntry._id} divider>
                                   <Divider />
                                   <ListItemText id="bookArist" className="readBlogs" />
-                                  <Typography><p><bold>Artist: </bold>{book.artist}</p></Typography>
+                                  <Typography><p><bold>Artist: </bold>{blogEntry.artist}</p></Typography>
                                 </ListItem>
                                 <ListItem button>
                                   <ListItemText id="bookTitle" className="readBlogs" />
-                                  <Typography><p><bold>Name: </bold>{book.title}</p></Typography>
+                                  <Typography><p><bold>Name: </bold>{blogEntry.blogger}</p></Typography>
                                 </ListItem>
                                 <ListItem button>
                                   <ListItemText id="bookRating" className="readBlogs" />
-                                  <Typography><p><bold>Rating: </bold>{book.rating}</p></Typography>
+                                  <Typography><p><bold>Rating: </bold>{blogEntry.rating}</p></Typography>
                                 </ListItem>
                                 <ListItem button>
                                   <ListItemText id="bookBlog" className="readBlogs" />
-                                  <Typography><p><bold>Comment: </bold>{book.blog}</p></Typography>
+                                  <Typography><p><bold>Comment: </bold>{blogEntry.blog}</p></Typography>
                                 </ListItem>
                                 </>
                             );
