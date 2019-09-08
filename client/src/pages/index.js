@@ -5,7 +5,7 @@ import { withRouter } from "react-router-dom";
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
-import styles from '../pages/blog.css'
+import '../pages/blog.css'
 
 class Home extends Component {
   state = {
