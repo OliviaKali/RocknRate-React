@@ -9,6 +9,7 @@
 body{
     background-image: url("https://hdqwalls.com/wallpapers/headphones-monochrome-ad.jpg");
 }
+
 #spotifyPaper{
     
     float: right;
@@ -51,6 +52,7 @@ body{
     top: 25px;
     position: relative;
     padding: 80px;
+    background-color: #fefbf4;
     
 }
  #search-artist{
@@ -67,8 +69,8 @@ body{
 #search-index {
     margin: auto;
     font-weight: bold;
-    height: 100px;
-    width: 200px;
+    height: 50px;
+    width: 340px;
     justify-content: center;
     text-align: center;
     position: absolute;
@@ -78,6 +80,20 @@ body{
     right: 0;
 
 
+}
+.title{
+    font-family: 'Fjalla One', sans-serif;
+}
+#rockNrate{
+    font-family: 'Lobster', cursive;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+}
+#navBar{
+    background-color: rgba(255,255,255,0.5);;
+
+    
 }
 #blogEntries{
     text-align: center;
@@ -91,7 +107,11 @@ body{
     justify-content: center;
     right: -50px;
     bottom: -40px;
+    background-color: orange;
     
+}
+#standardButton{
+    background-color: orange;
 }
 #outlined-dense-multiline{
     /* width: 750px; */
