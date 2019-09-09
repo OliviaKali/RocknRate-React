@@ -28,9 +28,9 @@ else {
 }
 
 const routes = require("./routes/api");
-// const routes1 = require("./routes/index")
+const routes1 = require("./routes/index")
 app.use(routes);
-// app.use(routes1);
+app.use(routes1);
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://root:password1@ds031571.mlab.com:31571/heroku_x1c5cqgx");
 
