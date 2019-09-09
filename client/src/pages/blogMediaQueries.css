@@ -1,69 +1,43 @@
-/* /* 
-#paper1{
-    height: 0px;
-    width: 0px;
-    justify-content: center;
-} */
 body{
     background-image: url("https://hdqwalls.com/wallpapers/headphones-monochrome-ad.jpg");
 }
 
 #spotifyPaper{
-    
     float: right;
     position: relative;
     bottom: -5px;
     padding: 0px;
-    justify-content: center;
-    
-    
-    
-    
-    
+    justify-content: center;  
 }
 #img1{
-  
     height: 400px;
     width: 800px;
     position: absolute;
-    
-
-
-
 }
+
 #img2{
-  
     height: 80%;
     width: 80%;
     float: left;
     justify-content: center;
     padding: 10px;
-
-
-
-
-
 }
+
 #paperPlane{
     width: 60%;
     height: 100%;
     top: 25px;
     position: relative;
     padding: 80px;
-    background-color: #fefbf4;
-    
+    background-color: #fefbf4;  
 }
- #search-artist{
 
+#search-artist{
     width: 650px;
     float: right;
     justify-content: right;
-    
-    
-    
-
-
 }
+
 #search-index {
     margin: auto;
     font-weight: bold;
@@ -76,12 +50,12 @@ body{
     left: 0;
     bottom: 0;
     right: 0;
-
-
 }
+
 .title{
     font-family: 'Fjalla One', sans-serif;
 }
+
 #rockNrate{
     font-family: 'Lobster', cursive;
     text-align: center;
@@ -89,37 +63,38 @@ body{
     color: white;
 }
 #navBar{
-    background-color: rgba(255,255,255,0.5);;
-
-    
+    background-color: rgba(255,255,255,0.5);;  
 }
+
 #blogEntries{
     text-align: center;
 }
+
 #fullGrid{
     top: -200px;
     position: relative;
 }
+
 #submitButton{
     position: relative;
     justify-content: center;
     right: -50px;
     bottom: -40px;
-    background-color: orange;
-    
+    background-color: orange;  
 }
+
 #standardButton{
     background-color: orange;
 }
+
 #outlined-dense-multiline{
     /* width: 750px; */
     position: relative;
     /* justify-content: center; */
-    width: 350px;
-    
+    width: 350px;  
 }
-#search-name{
 
+#search-name{
     float: left;
     text-align: center;
     justify-content: center;
@@ -133,72 +108,44 @@ body{
     bottom: -40px;
     clear: both; */
 }
+
 #divider{
     padding: 1px;
-
 }
+
 #divider-container{
     bottom: -80px;
-    position: relative;
-    
+    position: relative;   
 }
+
 #blogField{
     position: relative;
     bottom: -50px;
 }
+
  #footer-blog{
-    
     position: relative;
     float: right;
     width: 500px;
     right: -180px;
-
 }
 
 #rating{
     position: relative;
     bottom: -15px;
 }
-/* #blogContainer{
-    position: absolute;
-    bottom: 0px;
-    justify-content: center;
-    
-}  */
+/* Media Query Comments */
 
-.spotifyPlayer {
-    width:650px;
-    height:400px
-}
+/* #spotifyPaper -  /* width: 30%; 
+#paperPlane -   /* padding: 5%; 
+#search-artist -   /* width: 100%; */
 
-@media screen and (max-width: 1500px) {
-     #spotifyPaper{
-        /* width: 30%; */
+/* #spotifyPaper{
     float: right;
     position: relative;
     bottom: -5px;
     padding: 0px;
     justify-content: center;
-}
-
-#submitButton{
-    position: relative;
-    justify-content: center;
-    right: -50px;
-    bottom: -40px;
-    background-color: orange;
-}
-
-#rockNrate{
-    font-family: 'Lobster', cursive;
-    text-align: left;
-    text-decoration: none;
-    color: white;
-}
-
-.spotifyPlayer {
-    width:595px;
-    height:400px
 }
 
 #img2{
@@ -214,67 +161,18 @@ body{
     height: 100%;
     top: 25px;
     position: relative;
-    padding: 5%;
+    padding: 80px;
     background-color: #fefbf4;
 }
 
  #search-artist{
-    width: 100%;
+    width: 650px;
     float: right;
     justify-content: right;
-} 
-}
+} */
+/* @media screen and (max-width: 640px) { }
 
-@media screen and (max-width: 1315px) {
-    #spotifyPaper{
-        /* width: 30%; */
-    float: right;
-    position: relative;
-    bottom: -5px;
-    padding: 0px;
-    justify-content: center;
-}
+@media screen and (max-width: 768px) { }
 
-#submitButton{
-    position: relative;
-    justify-content: center;
-    right: -50px;
-    bottom: -40px;
-    background-color: orange;
-}
+@media screen and (max-width: 980px) { } */
 
-#rockNrate{
-    font-family: 'Lobster', cursive;
-    text-align: left;
-    text-decoration: none;
-    color: white;
-}
-
-.spotifyPlayer {
-    width:500px;
-    height:400px
-}
-
-#img2{
-    height: 80%;
-    width: 80%;
-    float: left;
-    justify-content: center;
-    padding: 10px;
-}
-
-#paperPlane{
-    width: 80%;
-    height: 100%;
-    top: 25px;
-    position: relative;
-    padding: 5%;
-    background-color: #fefbf4;
-}
-
- #search-artist{
-    width: 90%;
-    float: right;
-    justify-content: right;
-} 
-}
