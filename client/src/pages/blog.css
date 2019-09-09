@@ -1,33 +1,30 @@
-
 body{
     background-image: url("https://hdqwalls.com/wallpapers/headphones-monochrome-ad.jpg");
 }
 
 #spotifyPaper{
-    
     float: right;
     position: relative;
     bottom: -5px;
     padding: 0px;
+    justify-content: center;   
     justify-content: center;
-
 }
+
 #img1{
-  
     height: 400px;
     width: 800px;
     position: absolute;
-
 }
+
 #img2{
-  
     height: 80%;
     width: 80%;
     float: left;
     justify-content: center;
     padding: 10px;
-
 }
+
 #paperPlane{
     width: 60%;
     height: 100%;
@@ -35,14 +32,14 @@ body{
     position: relative;
     padding: 80px;
     background-color: #fefbf4;
-    
 }
- #search-artist{
 
+ #search-artist{
     width: 650px;
     float: right;
     justify-content: right;
 }
+
 #search-index {
     margin: auto;
     font-weight: bold;
@@ -55,73 +52,80 @@ body{
     left: 0;
     bottom: 0;
     right: 0;
-
 }
+
 .title{
     font-family: 'Fjalla One', sans-serif;
 }
+
 #rockNrate{
     font-family: 'Lobster', cursive;
     text-align: center;
     text-decoration: none;
     color: white;
 }
-#navBar{
-    background-color: rgba(255,255,255,0.5);;
 
+#navBar{
+    background-color: rgba(255,255,255,0.5);; 
 }
+
 #blogEntries{
     text-align: center;
 }
+
 #fullGrid{
     top: -200px;
     position: relative;
 }
+
 #submitButton{
     position: relative;
     justify-content: center;
     right: -50px;
     bottom: -40px;
     background-color: orange;
-    
 }
+
 #standardButton{
     background-color: orange;
 }
+
 #outlined-dense-multiline{
-    
     position: relative;
     width: 350px;
-    
 }
-#search-name{
 
+.MuiOutlinedInput-multiline.MuiOutlinedInput-marginDense {
+    margin: 10px;
+}
+
+#search-name{
     float: left;
     text-align: center;
     justify-content: center;
     position: relative;
     top: -100px;
 }
+
 #divider{
     padding: 1px;
-
 }
+
 #divider-container{
     bottom: -80px;
     position: relative;
-    
 }
+
 #blogField{
     position: relative;
     bottom: -50px;
 }
+
  #footer-blog{
-    
     position: relative;
     float: right;
     width: 500px;
     right: -180px;
-
 }
 
 #rating{
@@ -136,7 +140,6 @@ body{
 
 @media screen and (max-width: 1500px) {
      #spotifyPaper{
-        /* width: 30%; */
     float: right;
     position: relative;
     bottom: -5px;
@@ -189,23 +192,7 @@ body{
 }
 
 @media screen and (max-width: 1315px) {
-
-    /* #search-index {
-        margin: 5px;
-        font-weight: bold;
-        height: 50px;
-        width: 340px;
-        justify-content: center;
-        text-align: center;
-        position: absolute;
-        top: 0; 
-        left: 0;
-        bottom: 0;
-        right: 0;
-    } */
-
     #spotifyPaper{
-        /* width: 30%; */
     float: right;
     position: relative;
     bottom: -5px;
@@ -258,30 +245,14 @@ body{
 }
 
 @media screen and (max-width: 1280px) {
-   /* #search-index {
-        margin: 5px;
-        font-weight: bold;
-        height: 50px;
-        width: 340px;
-        justify-content: center;
-        text-align: center;
-        position: absolute;
-        top: 0; 
-        left: 0;
-        bottom: 0;
-        right: 0;
-    } */
-
     #footer-blog{
         position: relative;
         float: right;
         width: 300px;
         right: -80px;
-    
     }
 
     #spotifyPaper{
-        /* width: 30%; */
     float: right;
     position: relative;
     bottom: -5px;
@@ -339,30 +310,14 @@ body{
 }
 
 @media screen and (max-width: 1150px) {
-     /* #search-index {
-        margin: 5px;
-        font-weight: bold;
-        height: 50px;
-        width: 340px;
-        justify-content: center;
-        text-align: center;
-        position: absolute;
-        top: 0; 
-        left: 0;
-        bottom: 0;
-        right: 0;
-    } */
-
     #footer-blog{
         position: relative;
         float: right;
         width: 300px;
         right: -80px;
-    
     }
 
     #spotifyPaper{
-        /* width: 30%; */
     float: right;
     position: relative;
     bottom: -5px;
