@@ -17,6 +17,12 @@ const useStyles = makeStyles(theme => ({
   title: {
     flexGrow: 1,
   },
+  navButton: {
+    left: '10px',
+  },
+  navButton2: {
+    right: '10px',
+  },
   
 }));
 
@@ -37,8 +43,8 @@ export default function ButtonAppBar() {
           <Typography variant="h3" className={classes.title} id='rockNrate'>
             RocknRate
           </Typography>
-          <Button href= "/signin" color="inherit"><Typography  variant="h6">Login</Typography></Button>
-          <Button href= "/signup" color="inherit"><Typography  variant="h6">Sign up</Typography></Button>
+          <Button variant="contained" href= "/signin" style={{backgroundColor: "orange"}} className={classes.navButton2}><Typography>Login</Typography></Button>
+          <Button variant="contained" href= "/signup" style={{backgroundColor: "orange"}} className={classes.navButton}><Typography>Sign up</Typography></Button>
         </Toolbar>
       </AppBar>
     </div>
