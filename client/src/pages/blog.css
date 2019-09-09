@@ -294,7 +294,7 @@ body{
 } 
 }
 
-@media screen and (max-width: 1277px) {
+@media screen and (max-width: 1280px) {
    /* #search-index {
         margin: 5px;
         font-weight: bold;
@@ -364,10 +364,15 @@ body{
 }
 
  #search-artist{
+    margin-top: 50px;
     width: 100%;
     float: right;
     justify-content: right;
 } 
+
+.artistName {
+    margin-top: 100px;
+}
 }
 
 @media screen and (max-width: 1150px) {
