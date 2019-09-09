@@ -1,8 +1,12 @@
 # rocknRate-react
 
-## Built with
+Music blog created tp provide users with a unique experience to search their favorite artists and be able to comment/rate them as well as listen to their songs through the spotify API and read some information about them all in the same place. Users are able to sign up to the website through firebase. 
 
-Built with react, Material-UI, Spotify API, Firebase, node.js, and express.js.
+RocknRate-react is a MERN stack application.
+
+
+## Built with
+Built with react, Material-UI, Spotify API, Firebase, axios, mongoose, node.js, mongoDB, and express.js.
 
 ## UI
 Bulma and materialize were both replaced with a react library, Material-UI, to meet the react requirements.
@@ -24,11 +28,10 @@ Node-Spotify is used to pull the information in the backend, which is pushed to 
 The Spotify keys are hidden through .env and added to heroku to be able to deploy it without compromising the keys.
 
 ## Database/mongoDB
-Blogs are stored in the mongoDB collection.
-Pulling up the artist only shows the comments about the artist.
+Comments are stored in MongoDB. Comments are specific to each artist, so only comments are shown when an artist is searched.
 
 ## Firebase
-Firebased was used for the sign up and log in.
+Firebase was used for the sign up and log in.
 
 ## Future Development
 Create Artist Page for local/unknown artists to be able to add profile pages about themselves
