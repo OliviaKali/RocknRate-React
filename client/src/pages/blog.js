@@ -131,8 +131,8 @@ class Blog extends Component {
                             value={this.props.spotifyResults.name}
                             className="spotifyPlayer"
                             src={`https://open.spotify.com/embed/artist/${this.props.spotifyResults.id}`}
-                            width="650"
-                            height="400"
+                            // width="650"
+                            // height="400"
                             frameBorder="0"
                             allowtransparency="true"
                             allow="encrypted-media"

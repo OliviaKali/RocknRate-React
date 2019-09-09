@@ -3,8 +3,6 @@
     height: 0px;
     width: 0px;
     justify-content: center;
-
-
 } */
 body{
     background-image: url("https://hdqwalls.com/wallpapers/headphones-monochrome-ad.jpg");
@@ -168,3 +166,282 @@ body{
     
 }  */
 
+.spotifyPlayer {
+    width:650px;
+    height:400px
+}
+
+@media screen and (max-width: 1500px) {
+     #spotifyPaper{
+        /* width: 30%; */
+    float: right;
+    position: relative;
+    bottom: -5px;
+    padding: 0px;
+    justify-content: center;
+}
+
+#submitButton{
+    position: relative;
+    justify-content: center;
+    right: -50px;
+    bottom: -40px;
+    background-color: orange;
+}
+
+#rockNrate{
+    font-family: 'Lobster', cursive;
+    text-align: left;
+    text-decoration: none;
+    color: white;
+}
+
+.spotifyPlayer {
+    width:595px;
+    height:400px
+}
+
+#img2{
+    height: 80%;
+    width: 80%;
+    float: left;
+    justify-content: center;
+    padding: 10px;
+}
+
+#paperPlane{
+    width: 80%;
+    height: 100%;
+    top: 25px;
+    position: relative;
+    padding: 5%;
+    background-color: #fefbf4;
+}
+
+ #search-artist{
+    width: 100%;
+    float: right;
+    justify-content: right;
+} 
+}
+
+@media screen and (max-width: 1315px) {
+
+    /* #search-index {
+        margin: 5px;
+        font-weight: bold;
+        height: 50px;
+        width: 340px;
+        justify-content: center;
+        text-align: center;
+        position: absolute;
+        top: 0; 
+        left: 0;
+        bottom: 0;
+        right: 0;
+    } */
+
+    #spotifyPaper{
+        /* width: 30%; */
+    float: right;
+    position: relative;
+    bottom: -5px;
+    padding: 0px;
+    justify-content: center;
+}
+
+#submitButton{
+    position: relative;
+    justify-content: center;
+    right: -50px;
+    bottom: -40px;
+    background-color: orange;
+}
+
+#rockNrate{
+    font-family: 'Lobster', cursive;
+    text-align: left;
+    text-decoration: none;
+    color: white;
+}
+
+.spotifyPlayer {
+    width:500px;
+    height:400px
+}
+
+#img2{
+    height: 80%;
+    width: 80%;
+    float: left;
+    justify-content: center;
+    padding: 10px;
+}
+
+#paperPlane{
+    width: 80%;
+    height: 100%;
+    top: 25px;
+    position: relative;
+    padding: 5%;
+    background-color: #fefbf4;
+}
+
+ #search-artist{
+    width: 90%;
+    float: right;
+    justify-content: right;
+} 
+}
+
+@media screen and (max-width: 1277px) {
+   /* #search-index {
+        margin: 5px;
+        font-weight: bold;
+        height: 50px;
+        width: 340px;
+        justify-content: center;
+        text-align: center;
+        position: absolute;
+        top: 0; 
+        left: 0;
+        bottom: 0;
+        right: 0;
+    } */
+
+    #footer-blog{
+        position: relative;
+        float: right;
+        width: 300px;
+        right: -80px;
+    
+    }
+
+    #spotifyPaper{
+        /* width: 30%; */
+    float: right;
+    position: relative;
+    bottom: -5px;
+    padding: 0px;
+    justify-content: center;
+}
+
+#submitButton{
+    position: relative;
+    justify-content: center;
+    right: -10px;
+    bottom: -40px;
+    background-color: orange;
+}
+
+#rockNrate{
+    font-family: 'Lobster', cursive;
+    text-align: left;
+    text-decoration: none;
+    color: white;
+}
+
+.spotifyPlayer {
+    width:500px;
+    height:400px
+}
+
+#img2{
+    height: 80%;
+    width: 80%;
+    float: left;
+    justify-content: center;
+    padding: 10px;
+}
+
+#paperPlane{
+    width: 80%;
+    height: 100%;
+    top: 25px;
+    position: relative;
+    padding: 1%;
+    background-color: #fefbf4;
+}
+
+ #search-artist{
+    width: 100%;
+    float: right;
+    justify-content: right;
+} 
+}
+
+@media screen and (max-width: 1150px) {
+     /* #search-index {
+        margin: 5px;
+        font-weight: bold;
+        height: 50px;
+        width: 340px;
+        justify-content: center;
+        text-align: center;
+        position: absolute;
+        top: 0; 
+        left: 0;
+        bottom: 0;
+        right: 0;
+    } */
+
+    #footer-blog{
+        position: relative;
+        float: right;
+        width: 300px;
+        right: -80px;
+    
+    }
+
+    #spotifyPaper{
+        /* width: 30%; */
+    float: right;
+    position: relative;
+    bottom: -5px;
+    padding: 0px;
+    justify-content: center;
+}
+
+#submitButton{
+    position: relative;
+    justify-content: center;
+    right: -10px;
+    bottom: -40px;
+    background-color: orange;
+}
+
+#rockNrate{
+    font-family: 'Lobster', cursive;
+    text-align: left;
+    text-decoration: none;
+    color: white;
+}
+
+.spotifyPlayer {
+    width:500px;
+    height:400px
+}
+
+#img2{
+    height: 80%;
+    width: 80%;
+    float: left;
+    justify-content: center;
+    padding: 10px;
+}
+
+#paperPlane{
+    width: 80%;
+    height: 100%;
+    top: 25px;
+    position: relative;
+    padding: 1%;
+    background-color: #fefbf4;
+}
+
+ #search-artist{
+    width: 110%;
+    float: right;
+    justify-content: right;
+} 
+}
