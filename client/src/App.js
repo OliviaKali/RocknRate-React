@@ -25,7 +25,8 @@ class App extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     this.searchArtist(this.state.searchTerm);
-    this.getBlogEntries(this.state.searchTerm)
+    this.getBlogEntries(this.state.searchTerm);
+    this.setState({searchTerm: ""});
   };
 
   searchArtist = search => {
