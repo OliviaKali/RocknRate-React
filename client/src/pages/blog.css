@@ -8,6 +8,7 @@ body{
     bottom: -5px;
     padding: 0px;
     justify-content: center;   
+    justify-content: center;
 }
 
 #img1{
@@ -56,12 +57,14 @@ body{
 .title{
     font-family: 'Fjalla One', sans-serif;
 }
+
 #rockNrate{
     font-family: 'Lobster', cursive;
     text-align: center;
     text-decoration: none;
     color: white;
 }
+
 #navBar{
     background-color: rgba(255,255,255,0.5);; 
 }
@@ -69,6 +72,7 @@ body{
 #blogEntries{
     text-align: center;
 }
+
 #fullGrid{
     top: -200px;
     position: relative;
