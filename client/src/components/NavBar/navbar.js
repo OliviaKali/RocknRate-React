@@ -7,6 +7,7 @@ import Button from '@material-ui/core/Button';
 import '../../pages/blog.css'
 
 
+
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
@@ -36,6 +37,7 @@ export default function ButtonAppBar() {
     <div className={classes.root}>
       <AppBar position="static" id='navBar'>
         <Toolbar>
+        
         <Button variant="contained" href="/" style={{backgroundColor: "orange"}}>
         Home
       </Button>
@@ -45,6 +47,7 @@ export default function ButtonAppBar() {
           </Typography>
           <Button variant="contained" href= "/signin" style={{backgroundColor: "orange"}} className={classes.navButton2}><Typography>Login</Typography></Button>
           <Button variant="contained" href= "/signup" style={{backgroundColor: "orange"}} className={classes.navButton}><Typography>Sign up</Typography></Button>
+
         </Toolbar>
       </AppBar>
     </div>
