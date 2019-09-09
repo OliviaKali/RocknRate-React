@@ -23,6 +23,9 @@ Spotify API used for image, artist name, and id which is used to identify artist
 Node-Spotify is used to pull the information in the backend, which is pushed to the frontend and appended onto the page to display the requested information. 
 The Spotify keys are hidden through .env and added to heroku to be able to deploy it without compromising the keys.
 
+## React
+Insert React Info here :P
+
 ## Database/mongoDB
 Blogs are stored in the mongoDB collection.
 Pulling up the artist only shows the comments about the artist.
