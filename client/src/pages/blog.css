@@ -95,9 +95,9 @@ body{
     width: 350px;
 }
 
-.MuiOutlinedInput-multiline.MuiOutlinedInput-marginDense {
+/* .MuiOutlinedInput-multiline.MuiOutlinedInput-marginDense {
     margin: 10px;
-}
+} */
 
 #search-name{
     float: left;
@@ -190,6 +190,8 @@ body{
     justify-content: right;
 } 
 }
+
+
 
 @media screen and (max-width: 1315px) {
     #spotifyPaper{
