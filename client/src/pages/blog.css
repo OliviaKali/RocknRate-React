@@ -369,9 +369,7 @@ body{
     padding: 0px;
     justify-content: center;
 }
-#homepage-button{
-    background-color: orange;
-}
+
 #submitButton{
     position: relative;
     justify-content: center;
