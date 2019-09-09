@@ -29,7 +29,8 @@ export default function ButtonAppBar() {
           <Typography variant="h3" className={classes.title} id='rockNrate'>
             <a id='rockNrate' href="/">RocknRate</a>
           </Typography>
-          <Button color="inherit"><Typography variant="h6">Login</Typography></Button>
+          <Button href= "/signin" color="inherit"><Typography  variant="h6">Login</Typography></Button>
+          <Button href= "/signup" color="inherit"><Typography  variant="h6">Sign up</Typography></Button>
         </Toolbar>
       </AppBar>
     </div>
