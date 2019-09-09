@@ -15,9 +15,7 @@ import Divider from '@material-ui/core/Divider';
 import 'typeface-roboto';
 import Rating from '@material-ui/lab/Rating';
 import Box from '@material-ui/core/Box';
-
 import ListItemText from '@material-ui/core/ListItemText';
-// import spotifyAPI from "../utils/spotifyAPI";
 
 class Blog extends Component {
   state = {
@@ -77,7 +75,6 @@ class Blog extends Component {
 
         <Grid container justify='center'>
           <Paper id='paperPlane'>
-
             <Typography variant="h1" component="h2" gutterBottom>
               <p className="title artistName" value={this.props.spotifyResults.name} id='search-name'>
                 {this.props.spotifyResults.name}
@@ -86,9 +83,7 @@ class Blog extends Component {
               <Grid container justify='center'>
                 <Grid item xs={6}>
                   <Paper id='paper1'>
-
                     <article>
-
                       <img
                         id="img2"
                         className="imageSize"
@@ -100,15 +95,8 @@ class Blog extends Component {
                 </Grid>
 
                 <Grid item xs={6}>
-                  {/* <Paper id="search-name">
-        <Typography><p className="title" value={this.props.spotifyResults.name}>
-                {this.props.spotifyResults.name}
-              </p></Typography>
-      </Paper> */}
-
                   <Paper id="search-artist">
                     <Typography>
-
                       <SearchForm
                         search={this.props.searchTerm}
                         handleFormSubmit={this.props.handleFormSubmit}
@@ -119,9 +107,7 @@ class Blog extends Component {
                       <Rating value={5} readOnly name="size-small" size="small" />
                     </Box>
                   </Paper>
-
                   <Paper id='spotifyPaper'>
-
                     {this.props.spotifyResults.length === 0 ? (
                       <></>
                     ) : (
@@ -142,7 +128,6 @@ class Blog extends Component {
                   </Paper>
                 </Grid>
               </Grid>
-
               <Grid container id='divider-container'>
                 <Grid item xs={6}>
                   <Divider variant="middle" id="divider" />
@@ -179,20 +164,6 @@ class Blog extends Component {
                       name="rating"
                       placeholder="Rating (required)"
                     />
-                    {/* <Input
-            id="filled-full-width"
-              value={this.state.title}
-              onChange={this.handleInputChangeBlog}
-              name="title"
-              placeholder="Blogger Name (required)"
-            /> */}
-                    {/* 
-            <Input
-              value={this.state.rating}
-              onChange={this.handleInputChangeBlog}
-              name="rating"
-              placeholder="Rating (required)"
-            /> */}
                     <TextField
                       id="outlined-dense-multiline"
                       label="Blog Post"
@@ -206,51 +177,17 @@ class Blog extends Component {
                       name="blog"
                       placeholder="Comment (Required)"
                     />
-                    {/* <TextArea
-              value={this.state.blog}
-              onChange={this.handleInputChangeBlog}
-              name="blog"
-              placeholder="Comment (Required)"
-            /> */}
-
                     <Button enabled={!(this.state.rating && this.state.blogger)}
                       onClick={this.handleFormSubmitBlog} variant="contained" color="primary" id="submitButton" >
                       Submit
         <CloudUploadIcon />
                     </Button>
-                    {/* <FormBtn
-              disabled={!(this.state.rating && this.state.title)}
-              onClick={this.handleFormSubmitBlog}
-            >
-              Submit Blog
-            </FormBtn> */}
-
                   </form>
                 </Grid>
                 <Grid item xs={4}>
                   <Container>
                     <Paper id="footer-blog">
                       <Typography id="blogEntries"><h1>Blog Entries</h1></Typography>
-
-                      {/* {this.props.blogEntries.length ? (
-            <Card>
-              {this.props.blogEntries.map(book => {
-                return (
-                  <ListItem key={book._id}>
-                    <a href={"/books/" + book._id}>
-                      <p>Artist: {book.artist}</p>
-
-                      <p>Name: {book.title}</p>
-
-                      <p>Rating: {book.rating}</p>
-
-                      <p>Comment: {book.blog}</p>
-                    </a>
-                  </ListItem>
-                );
-              })}
-              </Card> */}
-
                       {this.props.blogEntries.length ? (
                         <List component="nav" aria-label="mailbox folders">
                           {this.props.blogEntries.map(blogEntry => {
