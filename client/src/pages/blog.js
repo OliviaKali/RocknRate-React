@@ -79,7 +79,7 @@ class Blog extends Component {
           <Paper id='paperPlane'>
 
             <Typography variant="h1" component="h2" gutterBottom>
-              <p className="title" value={this.props.spotifyResults.name} id='search-name'>
+              <p className="title artistName" value={this.props.spotifyResults.name} id='search-name'>
                 {this.props.spotifyResults.name}
               </p></Typography>
             <Grid id="fullGrid">
