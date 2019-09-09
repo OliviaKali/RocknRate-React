@@ -58,7 +58,7 @@ function Copyright() {
 
 const SignUpPage = () => (
   <div>
-    <h1>Sign Up</h1>
+    <h1></h1>
     <SignUpForm/>
   </div>
 );

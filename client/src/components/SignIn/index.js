@@ -63,7 +63,7 @@ const useStyles = makeStyles(theme => ({
 }));
 const SignInPage = () => (
   <div>
-    <h1>Sign In</h1>
+    <h1></h1>
     <SignInForm />
     
   </div>
