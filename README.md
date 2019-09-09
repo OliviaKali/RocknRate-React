@@ -39,7 +39,16 @@ Sign In and Sign Out will not display if a user is authenticated.
 
 
 ## Future Development
-Create Artist Page for local/unknown artists to be able to add profile pages about themselves
-Create feature that displays new artists, where you can search by genre to find new music
-Only allow Rating to be 1-5 stars - average rating displayed
-Connect to BandsinTown API to display concert details for each artist/ Use an API to include brief bio about each artist
+<ul>
+<li>Create Artist Page for local/unknown artists to be able to add profile pages about themselves</li>
+<li>Create feature that displays new artists, where you can search by genre to find new music</li>
+<li>Only allow Rating to be 1-5 stars - average rating displayed</li>
+<li>Connect to BandsinTown API to display concert details for each artist/ Use an API to include brief bio about each artist</li>
+<li>Show your own posts on separate component -- Account Page</li>
+<li>Sign Out button within Navbar</li>
+</ul>
+
+
+# Credits
+
+Jon Cheshire, Matt Maliaros, Olivia Kalinowski, Patrick Moroney, Mackenzie Balisage, Anthony Sambogna
