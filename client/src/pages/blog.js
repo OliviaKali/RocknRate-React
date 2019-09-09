@@ -58,14 +58,14 @@ class Blog extends Component {
     event.preventDefault();
 
     if (this.state.blogger && this.state.rating) {
-      // console.log(this.state.artist)
       API.saveBlog({
         artist: this.props.spotifyResults.name,
         blogger: this.state.blogger,
         rating: this.state.rating,
         blog: this.state.blog
       })
-        .then(() => this.props.getBlogEntries(this.props.spotifyResults.name))
+        .then(() => {this.props.getBlogEntries(this.props.spotifyResults.name); 
+          this.setState({blogger: "", rating: "", blog: ""});} )
         .catch(err => console.log(err));
     }
   };
