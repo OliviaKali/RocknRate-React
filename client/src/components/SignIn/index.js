@@ -18,6 +18,8 @@ import { compose } from 'recompose';
 import { SignUpLink } from '../SignUp/_index';
 import { withFirebase } from '../Firebase';
 import * as ROUTES from '../Firebase/routes';
+import "./signin.css"
+
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -63,7 +65,7 @@ const SignInPage = () => (
   <div>
     <h1>Sign In</h1>
     <SignInForm />
-    <SignUpLink />
+    
   </div>
 );
 const INITIAL_STATE = {
@@ -143,10 +145,12 @@ class SignInFormBase extends Component {
                 </Grid>
               </Grid>
               <Box mt={5}>
+              <SignUpLink />
                 <Copyright />
               </Box>
             </form>
           </div>
+         
         </Grid>
       </Container>
       </form>
