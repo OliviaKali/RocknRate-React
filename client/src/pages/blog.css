@@ -106,8 +106,8 @@ body{
     right: -50px;
     bottom: -40px;
     background-color: orange;
-    
 }
+
 #standardButton{
     background-color: orange;
 }
@@ -116,7 +116,10 @@ body{
     position: relative;
     /* justify-content: center; */
     width: 350px;
-    
+}
+
+.MuiOutlinedInput-multiline.MuiOutlinedInput-marginDense {
+    margin: 10px;
 }
 #search-name{
 
