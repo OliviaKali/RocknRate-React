@@ -22,9 +22,9 @@ function Copyright() {
     return (
       <Typography variant="body2" color="textSecondary" align="center">
         {'Copyright © '}
-        <Link color="inherit" href="https://material-ui.com/">
-          Your Website
-        </Link>{'https://localhost:3000/signin'}
+        <Link color="inherit" href="https://rocknrate-react.herokuapp.com/signin">
+          RocknRate-React
+        </Link>
         {new Date().getFullYear()}
         {'.'}
       </Typography>
@@ -173,7 +173,7 @@ class SignUpFormBase extends Component {
             </Button>
             <Grid container justify="flex-end">
               <Grid item>
-                <Link href="#" variant="body2">
+                <Link href="https://rocknrate-react.herokuapp.com/signin" variant="body2">
                   Already have an account? Sign in here
                 </Link>
               </Grid>
@@ -190,7 +190,7 @@ class SignUpFormBase extends Component {
 }
 const SignUpLink = () => (
   <p>
-    Don't have an account? <Link to={ROUTES.SIGN_UP}>Sign Up</Link>
+    Don't have an account? <Link href='https://rocknrate-react.herokuapp.com/signup'>Sign Up</Link>
   </p>
 );
 const SignUpForm = compose(
