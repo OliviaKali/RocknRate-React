@@ -173,7 +173,7 @@ class SignUpFormBase extends Component {
             </Button>
             <Grid container justify="flex-end">
               <Grid item>
-                <Link href="https://rocknrate-react.herokuapp.com/signin" variant="body2">
+                <Link href="https://rocknrate-react.herokuapp.com/signin">
                   Already have an account? Sign in here
                 </Link>
               </Grid>
