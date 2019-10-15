@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const blogSchema = new Schema({
   artist: { type: String},
   blogger: { type: String },
-  rating: { type: Number, min: 1, max: 5 },
+  rating: { type: String },
   blog: { type: String },
   date: { type: Date, default: Date.now }
 });
