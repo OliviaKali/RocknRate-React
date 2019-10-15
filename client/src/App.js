@@ -18,7 +18,7 @@ import {withFirebase} from './components/Firebase';
 
 const PossibleSignOut = ({ authUser }) => (
   <>{authUser ? <><SignOutButton /> <Switch><Route exact path="/signup"/>
-  <Route exact path="/signin"/><Route exact path = "/account"><Account/></Route></Switch></>: <Switch><Route path="/signup"> <SignUpPage/></Route>
+  <Route path="/signin"/><Route exact path = "/account"><Account/></Route></Switch></>: <Switch><Route path="/signup"> <SignUpPage/></Route>
   <Route path="/signin"> <SignInPage/></Route></Switch>
   }</>
 );
