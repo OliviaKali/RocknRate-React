@@ -22,12 +22,10 @@ const useStyles = makeStyles(theme => ({
     left: '10px',
   },
   navButton2: {
-    right: '10px',
+    left: '10px',
   },
   
 }));
-
-
 
 
 export default function ButtonAppBar() {
@@ -38,15 +36,25 @@ export default function ButtonAppBar() {
       <AppBar position="static" id='navBar'>
         <Toolbar>
         
-        <Button variant="contained" href="/" style={{backgroundColor: "orange"}}>
-        Home
-      </Button>
+          <Button variant="contained" href="/" style={{backgroundColor: "orange"}}>
+          Home
+          </Button>
 
           <Typography variant="h3" className={classes.title} id='rockNrate'>
             RocknRate
           </Typography>
-          <Button variant="contained" href= "/signin" style={{backgroundColor: "orange"}} className={classes.navButton2}><Typography>Login</Typography></Button>
-          <Button variant="contained" href= "/signup" style={{backgroundColor: "orange"}} className={classes.navButton}><Typography>Sign up</Typography></Button>
+
+          <Button variant="contained" href= "/about" style={{backgroundColor: "orange"}} className={classes.navButton}>
+            <Typography>About</Typography>
+          </Button>          
+          
+          <Button variant="contained" href= "/signin" style={{backgroundColor: "orange"}} className={classes.navButton}>
+            <Typography>Login</Typography>
+          </Button>
+
+          <Button variant="contained" href= "/signup" style={{backgroundColor: "orange"}} className={classes.navButton}>
+            <Typography>Sign up</Typography>
+          </Button>
 
         </Toolbar>
       </AppBar>

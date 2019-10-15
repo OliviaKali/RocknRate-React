@@ -29,7 +29,7 @@ class Blog extends Component {
     this.loadBlog();
   }
 
-  // Loads all books  and sets them to this.state.books
+  // Loads all blogs  and sets them to this.state.blogs
   loadBlog = () => {
     API.getBlog()
       .then(res =>
@@ -75,12 +75,17 @@ class Blog extends Component {
 
         <Grid container justify='center'>
           <Paper id='paperPlane'>
+
             <Typography variant="h1" component="h2" gutterBottom>
               <p className="title artistName" value={this.props.spotifyResults.name} id='search-name'>
                 {this.props.spotifyResults.name}
-              </p></Typography>
+              </p>
+            </Typography>
+
             <Grid id="fullGrid">
+
               <Grid container justify='center'>
+
                 <Grid item xs={6}>
                   <Paper id='paper1'>
                     <article>
@@ -96,17 +101,22 @@ class Blog extends Component {
 
                 <Grid item xs={6}>
                   <Paper id="search-artist">
+
                     <Typography>
                       <SearchForm
                         search={this.props.searchTerm}
                         handleFormSubmit={this.props.handleFormSubmit}
                         handleInputChange={this.props.handleSearchChange}
-                      /></Typography>
+                      />
+                    </Typography>
+
                     <Box component="fieldset" mb={3} borderColor="transparent" id="rating">
                       <Typography component="legend"></Typography>
                       <Rating value={5} readOnly name="size-small" size="small" />
                     </Box>
+
                   </Paper>
+
                   <Paper id='spotifyPaper'>
                     {this.props.spotifyResults.length === 0 ? (
                       <></>
@@ -126,14 +136,22 @@ class Blog extends Component {
                         </>
                       )}
                   </Paper>
+
                 </Grid>
+
               </Grid>
+
               <Grid container id='divider-container'>
+
                 <Grid item xs={6}>
+
                   <Divider variant="middle" id="divider" />
+
                   <Typography><h1>Rate Your Artist</h1></Typography>
+
                   {/* <Grid container id='blogField'> */}
                   <form>
+
                     <TextField
                       id="outlined-full-width"
                       label="Name"
@@ -141,14 +159,13 @@ class Blog extends Component {
                       fullWidth
                       margin="normal"
                       variant="outlined"
-                      InputLabelProps={{
-                        shrink: true,
-                      }}
+                      InputLabelProps={{ shrink: true }}
                       value={this.state.blogger}
                       onChange={this.handleInputChangeBlog}
                       name="blogger"
                       placeholder="Blogger Name (required)"
                     />
+
                     <TextField
                       id="outlined-full-width"
                       label="Rating"
@@ -156,61 +173,72 @@ class Blog extends Component {
                       fullWidth
                       margin="normal"
                       variant="outlined"
-                      InputLabelProps={{
-                        shrink: true,
-                      }}
+                      InputLabelProps={{ shrink: true }}
                       value={this.state.rating}
                       onChange={this.handleInputChangeBlog}
                       name="rating"
                       placeholder="Rating (required)"
                     />
+
                     <TextField
-                      id="outlined-dense-multiline"
-                      label="Blog Post"
-                      rows={5}
+                      id="outlined-multiline-static"
+                      fullWidth
+                      multiline
+                      rows="5"
+                      rowsMax="5"
                       margin="dense"
                       variant="outlined"
-                      multiline
-                      rowsMax="5"
                       value={this.state.blog}
                       onChange={this.handleInputChangeBlog}
                       name="blog"
                       placeholder="Comment (Required)"
                     />
+
                     <Button enabled={!(this.state.rating && this.state.blogger)}
                       onClick={this.handleFormSubmitBlog} variant="contained" color="primary" id="submitButton" >
                       Submit
-        <CloudUploadIcon />
+                      <CloudUploadIcon />
                     </Button>
+
                   </form>
+
                 </Grid>
+
                 <Grid item xs={4}>
+
                   <Container>
+
                     <Paper id="footer-blog">
+
                       <Typography id="blogEntries"><h1>Blog Entries</h1></Typography>
                       {this.props.blogEntries.length ? (
+
                         <List component="nav" aria-label="mailbox folders">
                           {this.props.blogEntries.map(blogEntry => {
                             return (
                               <>
                                 <ListItem key={blogEntry._id} divider>
                                   <Divider />
-                                  <ListItemText id="bookArist" className="readBlogs" />
+                                  <ListItemText id="blogArist" className="readBlogs" />
                                   <Typography><p><bold>Artist: </bold>{blogEntry.artist}</p></Typography>
                                 </ListItem>
+
                                 <ListItem button>
-                                  <ListItemText id="bookTitle" className="readBlogs" />
+                                  <ListItemText id="blogTitle" className="readBlogs" />
                                   <Typography><p><bold>Name: </bold>{blogEntry.blogger}</p></Typography>
                                 </ListItem>
+
                                 <ListItem button>
-                                  <ListItemText id="bookRating" className="readBlogs" />
+                                  <ListItemText id="blogRating" className="readBlogs" />
                                   <Typography><p><bold>Rating: </bold>{blogEntry.rating}</p></Typography>
                                 </ListItem>
+
                                 <ListItem button>
-                                  <ListItemText id="bookBlog" className="readBlogs" />
+                                  <ListItemText id="blogBlog" className="readBlogs" />
                                   <Typography><p><bold>Comment: </bold>{blogEntry.blog}</p></Typography>
                                 </ListItem>
-                                </>
+
+                              </>
                             );
                           })}
                         </List>
@@ -231,3 +259,4 @@ class Blog extends Component {
 }
 
 export default withRouter(Blog);
+

@@ -18,7 +18,7 @@ import {withFirebase} from './components/Firebase';
 
 const PossibleSignOut = ({ authUser }) => (
   <>{authUser ? <><SignOutButton /> <Switch><Route exact path="/signup"/>
-  <Route path="/signin"/><Route path = "/account"><Account/></Route></Switch></>: <Switch><Route path="/signup"> <SignUpPage/></Route>
+  <Route exact path="/signin"/><Route exact path = "/account"><Account/></Route></Switch></>: <Switch><Route path="/signup"> <SignUpPage/></Route>
   <Route path="/signin"> <SignInPage/></Route></Switch>
   }</>
 );
@@ -96,43 +96,51 @@ class App extends Component {
     console.log(this.state);
     return (
       <div>
-      <PrimarySearchAppBar />
-      <Router>
-        <div>
-        <PossibleSignOut authUser={this.state.authUser}/>
-          <Switch>
-            <Route
-              exact
-              path="/"
-              render={props => (
-                <Home
-                  {...props}
-                  searchTerm={this.state.searchTerm}
-                  handleSearchChange={this.handleInputChange}
-                  handleFormSubmit={this.handleFormSubmit}
-                  spotifyResults={this.state.spotifyResults}
-                />
-              )}
-            />
-            <Route
-              path="/artist"
-              render={props => (
-                <Blog
-                  {...props}
-                  searchTerm={this.state.searchTerm}
-                  handleSearchChange={this.handleInputChange}
-                  handleFormSubmit={this.handleFormSubmit}
-                  spotifyResults={this.state.spotifyResults}
-                  blogEntries={this.state.blogEntries}
-                  getBlogEntries={this.getBlogEntries}
-                />
-              )}
-            />
-            <Route path="/about" component={About} />
-          </Switch>
-        </div>
-      </Router>
-</div>
+        <PrimarySearchAppBar />
+          <Router>
+            <div>
+              <PossibleSignOut authUser={this.state.authUser}/>
+                <Switch>
+                
+                  <Route
+                    exact
+                    path="/"
+                    render={props => (
+                      <Home
+                        {...props}
+                        searchTerm={this.state.searchTerm}
+                        handleSearchChange={this.handleInputChange}
+                        handleFormSubmit={this.handleFormSubmit}
+                        spotifyResults={this.state.spotifyResults}
+                      />
+                    )}
+                  />
+
+                  <Route
+                    path="/artist"
+                    render={props => (
+                      <Blog
+                        {...props}
+                        searchTerm={this.state.searchTerm}
+                        handleSearchChange={this.handleInputChange}
+                        handleFormSubmit={this.handleFormSubmit}
+                        spotifyResults={this.state.spotifyResults}
+                        blogEntries={this.state.blogEntries}
+                        getBlogEntries={this.getBlogEntries}
+                      />
+                    )}
+                  />
+
+                  <Route 
+                    exact 
+                    path="/about" 
+                    component={About} 
+                  />
+
+                </Switch>
+            </div>
+          </Router>
+      </div>
     );
   }
 }
