@@ -24,6 +24,9 @@ const useStyles = makeStyles(theme => ({
   navButton2: {
     left: '10px',
   },
+  navButton3: {
+    left: '10px',
+  },
   
 }));
 
@@ -44,11 +47,11 @@ export default function ButtonAppBar() {
             RocknRate
           </Typography>
 
-          <Button variant="contained" href= "/about" style={{backgroundColor: "orange"}} className={classes.navButton}>
+          <Button variant="contained" href= "/about" style={{backgroundColor: "orange"}} className={classes.navButton3}>
             <Typography>About</Typography>
           </Button>          
           
-          <Button variant="contained" href= "/signin" style={{backgroundColor: "orange"}} className={classes.navButton}>
+          <Button variant="contained" href= "/signin" style={{backgroundColor: "orange"}} className={classes.navButton2}>
             <Typography>Login</Typography>
           </Button>
 
