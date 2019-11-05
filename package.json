@@ -29,7 +29,7 @@
     "express": "^4.17.1",
     "firebase": "^6.6.0",
     "if-env": "^1.0.4",
-    "mongoose": "^5.3.16",
+    "mongoose": "^5.7.5",
     "node-spotify-api": "^1.1.1",
     "passport": "^0.4.0",
     "passport-spotify": "^1.1.0",
